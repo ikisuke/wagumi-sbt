@@ -1,0 +1,24 @@
+{
+  "name": "CHEL",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://cdn.discordapp.com/avatars/805658239643025428/e3ea396b98b02a03d1894a8d693ba139.png",
+  "external_url": "https://wagumi-dev.notion.site/943afa783d9a4987ac9731677618462a",
+  "contributions": [
+    {
+      "id": "eff45546-a1a0-40fa-a6a8-176f6e2c2dc5",
+      "last_edited_time": "2022-08-16T12:09:00.000Z",
+      "name": "web3起業勉強会を開催",
+      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c6a6ce5a-811b-46c9-a46f-15d8f72e5448/%E7%AC%AC3%E5%9B%9E%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%83%90%E3%83%8A%E3%83%BC.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220816%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220816T120845Z&X-Amz-Expires=86400&X-Amz-Signature=da2447cc3dda7ec0fc9688beeb14354d0e295771b8f2c64a56d373d7b984a549&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25E7%25AC%25AC3%25E5%259B%259E%25E5%258B%2589%25E5%25BC%25B7%25E4%25BC%259A%25E3%2583%2590%25E3%2583%258A%25E3%2583%25BC.png%22&x-id=GetObject",
+      "description": "UXドリブンなMVPの作り方",
+      "date": {
+        "start": "2022-08-16",
+        "end": null,
+        "time_zone": null
+      },
+      "users": [
+        "450293970493505536",
+        "805658239643025428"
+      ]
+    }
+  ]
+}

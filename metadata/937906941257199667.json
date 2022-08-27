@@ -5,6 +5,22 @@
   "external_url": "https://wagumi-dev.notion.site/574d5765c92b4aa1a12d52f78f651c58",
   "contributions": [
     {
+      "id": "77ca2043-8053-430a-85ff-6205884d33fd",
+      "last_edited_time": "2022-08-25T12:11:00.000Z",
+      "name": "SBT勉強会を開催",
+      "image": "https://pbs.twimg.com/media/FbAS3v8aAAUEXy8.jpg",
+      "description": "SBTの論文輪読を行う勉強会を開催しました。",
+      "date": {
+        "start": "2022-08-25",
+        "end": null,
+        "time_zone": null
+      },
+      "users": [
+        "937906941257199667",
+        "686023579631878145"
+      ]
+    },
+    {
       "id": "8629983a-dc0b-4728-b891-33b2ef38bbb9",
       "last_edited_time": "2022-08-21T04:09:00.000Z",
       "name": "VC Meeting",
