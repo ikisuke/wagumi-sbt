@@ -1,5 +1,20 @@
 [
   {
+    "id": "0eb35f27-1646-44b9-af8b-2abfaf169771",
+    "last_edited_time": "2022-08-28T16:39:00.000Z",
+    "name": "TEST",
+    "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+    "description": "test for updating\naaaaaaaaasdfadfaea",
+    "date": {
+      "start": "2022-08-17",
+      "end": null,
+      "time_zone": null
+    },
+    "users": [
+      "937906941257199667"
+    ]
+  },
+  {
     "id": "77ca2043-8053-430a-85ff-6205884d33fd",
     "last_edited_time": "2022-08-25T12:11:00.000Z",
     "name": "SBT勉強会を開催",
@@ -54,21 +69,6 @@
     },
     "users": [
       "852056349222371369"
-    ]
-  },
-  {
-    "id": "0eb35f27-1646-44b9-af8b-2abfaf169771",
-    "last_edited_time": "2022-08-18T12:48:00.000Z",
-    "name": "TEST",
-    "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-    "description": "test for updating\naaaaaaaaasdfadfaea",
-    "date": {
-      "start": "2022-08-17",
-      "end": null,
-      "time_zone": null
-    },
-    "users": [
-      "937906941257199667"
     ]
   },
   {

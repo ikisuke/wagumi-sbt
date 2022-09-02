@@ -1,0 +1,88 @@
+{
+  "name": "Yusuket",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://cdn.discordapp.com/avatars/779789414880510002/5bb1a249cad3c0145718cb7e0bc32a45.png",
+  "external_url": "https://wagumi-dev.notion.site/5e95ab55322046d6819295d3c7969c0e",
+  "contributions": [
+    {
+      "id": "a58a2789-ed7b-446b-8b13-c40acd994422",
+      "last_edited_time": "2022-08-12T00:42:00.000Z",
+      "name": "News Letterを配信",
+      "image": "https://s3.amazonaws.com/revue/issue_images/images/000/569/435/original/issue_image_1272673.jpg?1660070699",
+      "description": "和組Canon - Issue #14を配信しました",
+      "date": {
+        "start": "2022-08-10",
+        "end": null,
+        "time_zone": null
+      },
+      "users": [
+        "779789414880510002",
+        "402820738568028160",
+        "918836683766661123",
+        "340699948620185602"
+      ]
+    },
+    {
+      "id": "f548d6a2-ba46-411e-bf0a-9aa8e918116a",
+      "last_edited_time": "2022-08-10T08:34:00.000Z",
+      "name": "News Letterを配信",
+      "image": "https://s3.amazonaws.com/revue/issue_images/images/000/553/488/original/issue_image_1247661.jpg?1658168732",
+      "description": "和組Canon - Issue #13を配信しました",
+      "date": {
+        "start": "2022-07-19",
+        "end": null,
+        "time_zone": null
+      },
+      "users": [
+        "779789414880510002",
+        "402820738568028160",
+        "918836683766661123"
+      ]
+    },
+    {
+      "id": "6a3f4864-a090-4683-8b3e-a7d9c0bcb05b",
+      "last_edited_time": "2022-08-02T10:19:00.000Z",
+      "name": "IVS那覇に参加",
+      "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
+      "description": "IVS那覇に参加しました。",
+      "date": {
+        "start": "2022-07-06",
+        "end": "2022-07-08",
+        "time_zone": null
+      },
+      "users": [
+        "686023579631878145",
+        "852056349222371369",
+        "125422627715022848",
+        "779789414880510002",
+        "937906941257199667",
+        "474743118248280085",
+        "402820738568028160",
+        "918836683766661123",
+        "209242057460547584",
+        "921537485509636117",
+        "714639559459340320"
+      ]
+    },
+    {
+      "id": "bc6d94fa-db5d-408a-b3dc-9f4b3943326e",
+      "last_edited_time": "2022-07-19T23:07:00.000Z",
+      "name": "WagumiDAO Adminとして活動",
+      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+      "description": "Adminとして活動しました。",
+      "date": {
+        "start": "2022-04-01",
+        "end": "2022-06-30",
+        "time_zone": null
+      },
+      "users": [
+        "488389192775106561",
+        "722678732766314499",
+        "779789414880510002",
+        "338994227793100820",
+        "340699948620185602",
+        "686023579631878145"
+      ]
+    }
+  ]
+}

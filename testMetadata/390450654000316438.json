@@ -1,0 +1,29 @@
+{
+  "name": "たつぞう",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://cdn.discordapp.com/avatars/390450654000316438/d4ebddaf075524b37c5e4579e77d22fc.png",
+  "external_url": "https://wagumi-dev.notion.site/a9492f20bcf448eebad06df1f3e91ce8",
+  "contributions": [
+    {
+      "id": "39399cf8-7cc6-4635-986b-920db846e250",
+      "last_edited_time": "2022-08-02T10:19:00.000Z",
+      "name": "5000人記念イベント 開催に尽力",
+      "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
+      "description": "がんばりました。",
+      "date": {
+        "start": "2022-04-01",
+        "end": "2022-04-30",
+        "time_zone": null
+      },
+      "users": [
+        "686023579631878145",
+        "390450654000316438",
+        "937906941257199667",
+        "700246962016092160",
+        "695157095846379562",
+        "450293970493505536",
+        "488544515976724480"
+      ]
+    }
+  ]
+}
