@@ -12,13 +12,14 @@ const contributions = []
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
-const getUserData = async (userId) => {
+const getUserData = async (userId, tokens) => {
 
 	const metadataStruct = {
 		name: "",
 		description: "He/She is one of wagumi members.",
 		image: "",
 		external_url:"",
+		tokens: tokens,
 		contributions: [],
 	};
 
@@ -73,10 +74,14 @@ const userSearch = async() => {
 	return userIds;
 }
 
+const getTokenData = async () => {
+	const tokens = [];
+	//Tokenの情報を取ってくる
+	return tokens;
+}
 
 const createMetadata = async () => {
-
-	const executionMessage = 'update metadata';
+	const executionMessage = 'create metadata';
     let executionData;
 
 	try {
@@ -109,7 +114,9 @@ const createMetadata = async () => {
 		const userIds = await userSearch();
 
 		for(let userId of userIds) {
-			getUserData(userId);
+			//TODO
+			const tokens = await getTokenData(userId);
+			getUserData(userId, tokens);
 		} 
 	fs.writeFileSync("src/executionData.json", executionData);
 
