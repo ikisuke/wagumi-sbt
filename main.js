@@ -1,5 +1,7 @@
 const [, , firstArg] = process.argv;
 
+require('dotenv').config();
+
 const metadataUpdate = require('./src/lib/metadataUpdate');
 const metadataCreate = require('./src/lib/metadataCreate');
 const { makeExecutionData } = require('./src/lib/makeLog');

@@ -10,38 +10,54 @@ const { makeExecutionData } = require('./makeLog');
 
 const client = new Client({ auth: process.env.WAGUMI_SBT_API_TOKEN });
 
+const metadataDirectoryPath = process.env.METADATA_PATH;
+
 //usersの比較
 const compareUsers = async (contribution) => {
-    const dataForComparingUsers = fs.readFileSync(`src/metadata/${contribution.users[0]}.json`);
-    const dataForComparingUsersJson = JSON.parse(dataForComparingUsers);
+    const dataForComparingUser = fs.readFileSync(metadataDirectoryPath + `${contribution.users[0]}.json`);
+    const dataForComparingUsersJson = JSON.parse(dataForComparingUser);
     const targetPage = dataForComparingUsersJson.contributions.find((result) => result.id === contribution.id);
-    console.log(contribution.users, targetPage.users);
+    if(!targetPage) {
+        for(const userId of contribution.users) {
+            await patchUserMetadata(contribution, userId);  
+        };
+        return [];
+    } 
     const comparedUsers = targetPage.users.filter(result => contribution.users.indexOf(result) === -1 );
     return comparedUsers;
 }
 
+//usersを比較したときに
+const patchUserMetadata = async(contribution, userId) => {
+    const dataForComparingUser = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
+    const dataForComparingUsersJson = JSON.parse(dataForComparingUser);
+    dataForComparingUsersJson.contributions.unshift(contribution);
+    const json = JSON.stringify(dataForComparingUsersJson   , null, 2);
+    fs.writeFileSync(metadataDirectoryPath + `${contribution.users[0]}.json`, json);
+}
+
 //比較後にuserが消えていた場合に、該当ユーザーのcontributionを削除
 const deleteContribution = async(userId, pageId) => {
-    const comparedUserFile = fs.readFileSync(`src/metadata/${userId}.json`);
+    const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
     const comparedUserData = JSON.parse(comparedUserFile);
     const contributionIndex = comparedUserData.contributions.findIndex((result) => result.id === pageId);
     comparedUserData.contributions.splice(contributionIndex, 1);
     const json = JSON.stringify(comparedUserData, null, 2);
-    fs.writeFileSync(`metadata/${userId}.json`, json);
+    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
 }
 
 const updateContribution = async(userId, contribution) => {
-    const comparedUserFile = fs.readFileSync(`src/metadata/${userId}.json`);
+    const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
     const comparedUserData = JSON.parse(comparedUserFile);
     const contributionIndex = comparedUserData.contributions.findIndex((result) => result.id === contribution.id);
     comparedUserData.contributions.splice(contributionIndex, 1);
     comparedUserData.contributions.unshift(contribution);
     const json = JSON.stringify(comparedUserData, null, 2);
-    fs.writeFileSync(`metadata/${userId}.json`,json)
+    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`,json)
 }
 
 const userSearch = (userId) => {
-    const fileDir = fs.readdirSync('src/metadata');
+    const fileDir = fs.readdirSync(metadataDirectoryPath);
     const fileIds = fileDir.map((id) => {
 	    return id.replace(/.json/g, "");
     })
@@ -70,10 +86,20 @@ const updateContributionPage = async () => {
                     },
                 ],
                 filter: {
+                    and: [
+                        {
                             property: 'last_edited_time',
                             last_edited_time: {
                                 after: lastExecutionTime
                             }        
+                        },
+                        {
+                            property: 'publish',
+                            checkbox: {
+                                equals: true,
+                            }
+                        }
+                    ]
                 }
             };
 

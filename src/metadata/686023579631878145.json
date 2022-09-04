@@ -1,48 +1,80 @@
 {
-  "name": "araimono.KaiWai",
+  "name": "ikisuke",
   "description": "He/She is one of wagumi members.",
-  "image": "https://cdn.discordapp.com/avatars/686023579631878145/a4a0674198b53641ef155da2e8d809d8.png",
-  "external_url": "https://wagumi-dev.notion.site/81603a0a9f0043dfa4d003b52ab237c3",
+  "image": "https://cdn.discordapp.com/avatars/937906941257199667/6519c757cfef9de4d41b07446b944d77.png",
+  "external_url": "https://wagumi-dev.notion.site/574d5765c92b4aa1a12d52f78f651c58",
   "contributions": [
     {
-      "id": "77ca2043-8053-430a-85ff-6205884d33fd",
-      "last_edited_time": "2022-08-25T12:11:00.000Z",
-      "name": "SBT勉強会を開催",
-      "image": "https://pbs.twimg.com/media/FbAS3v8aAAUEXy8.jpg",
-      "description": "SBTの論文輪読を行う勉強会を開催しました。",
+      "id": "39399cf8-7cc6-4635-986b-920db846e250",
+      "last_edited_time": "2022-09-04T07:03:00.000Z",
+      "name": "5000人記念イベント 開催に尽力",
+      "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
+      "description": "がんばりました。",
       "date": {
-        "start": "2022-08-25",
-        "end": null,
+        "start": "2022-04-01",
+        "end": "2022-04-30",
         "time_zone": null
       },
       "users": [
+        "686023579631878145",
+        "390450654000316438",
         "937906941257199667",
-        "686023579631878145"
+        "700246962016092160",
+        "695157095846379562",
+        "450293970493505536",
+        "488544515976724480"
       ]
     },
     {
-      "id": "8629983a-dc0b-4728-b891-33b2ef38bbb9",
-      "last_edited_time": "2022-08-21T04:09:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "第９回定例ミーティングに参加しました。",
+      "id": "40c610fb-e455-4562-8e84-cde31b81809c",
+      "last_edited_time": "2022-09-04T07:01:00.000Z",
+      "name": "BGIN DTWG CALLに乗り込みました",
+      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/df619469-12fd-4581-a2d7-dd9350ddc543/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220713%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220713T141627Z&X-Amz-Expires=86400&X-Amz-Signature=9ef04113298e6cd67a3ef2512dbacde3775f6304c9519d9af84b174d4fa8250c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
+      "description": "リスニングオンリーで美女が話すのを楽しみました。",
       "date": {
-        "start": "2022-08-21",
+        "start": "2022-07-13",
         "end": null,
         "time_zone": null
       },
       "users": [
-        "488389192775106561",
+        "488544515976724480",
+        "937906941257199667"
+      ]
+    },
+    {
+      "id": "5fbbe604-caf9-434e-a98f-3d662dc136e9",
+      "last_edited_time": "2022-09-04T06:57:00.000Z",
+      "name": "VC Meeting",
+      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
+      "description": "WG資料等の作成に関する打ち合わせを行いました。",
+      "date": {
+        "start": "2022-07-10",
+        "end": null,
+        "time_zone": null
+      },
+      "users": [
         "686023579631878145",
-        "852056349222371369",
         "937906941257199667",
+        "488544515976724480"
+      ]
+    },
+    {
+      "id": "8b317a24-dae1-4236-83e1-12b8a9e14f44",
+      "last_edited_time": "2022-09-04T06:50:00.000Z",
+      "name": "TeamCommunity定例ミーティングに参加",
+      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+      "description": "Team Communityの定例ミーティングに参加しました。",
+      "date": {
+        "start": "2022-07-15",
+        "end": null,
+        "time_zone": null
+      },
+      "users": [
+        "686023579631878145",
         "450293970493505536",
-        "474743118248280085",
-        "783349189680824360",
-        "407535019897126913",
-        "927991390917492808",
-        "972123668073300009",
-        "816699295361138739",
+        "937906941257199667",
+        "695157095846379562",
+        "772111610194034698",
         "488544515976724480"
       ]
     },
@@ -68,607 +100,6 @@
         "528886785204289556",
         "899388691133366312",
         "488544515976724480"
-      ]
-    },
-    {
-      "id": "a533cbd0-bff8-495b-83a1-53ba39ad32bc",
-      "last_edited_time": "2022-08-14T05:53:00.000Z",
-      "name": "IVS那覇報告会に参加",
-      "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-      "description": "IVS那覇報告会に参加しました。",
-      "date": {
-        "start": "2022-07-14",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "340699948620185602",
-        "474743118248280085",
-        "921537485509636117",
-        "376647703872012289",
-        "809128177976344696",
-        "920998877824421908",
-        "528886785204289556",
-        "884411939453825056",
-        "754626254371553331",
-        "553916352306479104",
-        "915271495561932901",
-        "757214700919324772",
-        "772111610194034698",
-        "917755486466609172",
-        "918836683766661123",
-        "667736363294130207",
-        "933884242457415750",
-        "905223150676103211",
-        "978434356441923634",
-        "361014131714686978",
-        "936042896644259890",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "1f091f56-aa4a-4d55-8498-8d28a3e63938",
-      "last_edited_time": "2022-08-14T05:53:00.000Z",
-      "name": "WG-TOKEN に参加",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-      "description": "地獄のような作業をおこなってくれました。",
-      "date": {
-        "start": "2022-07-01",
-        "end": "2022-09-30",
-        "time_zone": null
-      },
-      "users": [
-        "488389192775106561",
-        "340699948620185602",
-        "937906941257199667",
-        "686023579631878145",
-        "695157095846379562",
-        "402820738568028160",
-        "496541494480601092",
-        "918836683766661123",
-        "489624124780576785",
-        "814473052204433428",
-        "407535019897126913",
-        "528886785204289556",
-        "783349189680824360",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "1e7078fc-1429-4ca9-b44b-acced5f927a8",
-      "last_edited_time": "2022-08-14T05:50:00.000Z",
-      "name": "WagumiDAO Adminとして活動",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "Adminとして活動しました。",
-      "date": {
-        "start": "2022-07-01",
-        "end": "2022-09-30",
-        "time_zone": null
-      },
-      "users": [
-        "340699948620185602",
-        "686023579631878145",
-        "488389192775106561",
-        "852056349222371369"
-      ]
-    },
-    {
-      "id": "5982d44e-d854-419b-bb1a-069bdbc64218",
-      "last_edited_time": "2022-08-14T02:47:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "第８回定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-08-14",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "852056349222371369",
-        "695157095846379562",
-        "450293970493505536",
-        "474743118248280085",
-        "783349189680824360",
-        "407535019897126913",
-        "927991390917492808",
-        "488544515976724480",
-        "918836683766661123"
-      ]
-    },
-    {
-      "id": "71f7ea29-2b99-454f-9e6a-b52ad0b3e3fd",
-      "last_edited_time": "2022-08-10T22:51:00.000Z",
-      "name": "web3起業勉強会に参加",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6fe7fb9d-f882-4da3-b2b6-d9d8be3a26c6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220802%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220802T123428Z&X-Amz-Expires=86400&X-Amz-Signature=e0303bd6dd95e9d3d7c30a868b31ef07c3b98204bf269da8bb4fde427039d6ad&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-      "description": "web3起業に特徴的な知識・ノウハウ/共同創業者の価値",
-      "date": {
-        "start": "2022-08-02",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "340699948620185602",
-        "686023579631878145",
-        "695157095846379562",
-        "474743118248280085",
-        "402820738568028160",
-        "922343452178538567",
-        "783349189680824360",
-        "809128177976344696",
-        "418382279640088586",
-        "941999885132103760",
-        "905603213917585450",
-        "737196032802160722",
-        "826209626223542334",
-        "533485143285825558",
-        "958326029225701386",
-        "792755086806876190",
-        "820197383643201568",
-        "993713499282866326",
-        "361014131714686978",
-        "735393975846043678",
-        "424884859845083146",
-        "917755486466609172",
-        "910981922174427146",
-        "920998877824421908",
-        "829291623980204052",
-        "588990329005539328",
-        "915079978725572719",
-        "782060287892783145",
-        "875370093004070962",
-        "466959249617059840",
-        "910306167811620914",
-        "985747779508928512",
-        "832715007241355324",
-        "866226920983494706",
-        "885788933219287061",
-        "488544515976724480",
-        "503562942063837185",
-        "738266759693336637",
-        "419008858183303169",
-        "966550381230436362",
-        "767377625999212544",
-        "806117478442860595",
-        "997649917466128434",
-        "810683399760510976",
-        "935373398568230962",
-        "977147074204274718",
-        "449518705496555531"
-      ]
-    },
-    {
-      "id": "262883af-3a84-4965-b43d-c75f58518f4d",
-      "last_edited_time": "2022-08-10T22:51:00.000Z",
-      "name": "TeamCommunity定例ミーティングに参加",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "Team Communityの定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-07-29",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "972123668073300009",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "a4aeae03-88ef-4ada-8e9d-a0612ce791bb",
-      "last_edited_time": "2022-08-10T08:34:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "第６回定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-07-31",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "488389192775106561",
-        "340699948620185602",
-        "686023579631878145",
-        "695157095846379562",
-        "450293970493505536",
-        "402820738568028160",
-        "474743118248280085",
-        "918836683766661123",
-        "528886785204289556",
-        "783349189680824360",
-        "496541494480601092",
-        "814473052204433428",
-        "489624124780576785",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "f0726635-26ff-4bd5-ac94-388247f6f305",
-      "last_edited_time": "2022-08-10T08:34:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "第5回定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-07-24",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "488389192775106561",
-        "937906941257199667",
-        "340699948620185602",
-        "686023579631878145",
-        "695157095846379562",
-        "918836683766661123",
-        "814473052204433428",
-        "474743118248280085",
-        "450293970493505536",
-        "402820738568028160",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "85eef502-006f-41c6-846f-837dc1f50269",
-      "last_edited_time": "2022-08-09T22:47:00.000Z",
-      "name": "アイデアソン練習会",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "アイデアソンの練習を行いました。",
-      "date": {
-        "start": "2022-08-09T00:00:00.000+09:00",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "528886785204289556",
-        "686023579631878145",
-        "402820738568028160",
-        "927991390917492808"
-      ]
-    },
-    {
-      "id": "a8e44a1d-2276-47d4-a75b-6b5b2bb2bfea",
-      "last_edited_time": "2022-08-08T08:07:00.000Z",
-      "name": "AMAモデレーターを務めました",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "「和組 Astar Network勉強会 with Sota Watanabe」のモデレーターをつとめました。",
-      "date": {
-        "start": "2022-08-02",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "852056349222371369",
-        "686023579631878145",
-        "927991390917492808"
-      ]
-    },
-    {
-      "id": "ad2c2f98-3983-4239-a277-e0a283bc92b6",
-      "last_edited_time": "2022-08-08T08:07:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "第７回定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-08-07",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "852056349222371369",
-        "937906941257199667",
-        "695157095846379562",
-        "450293970493505536",
-        "474743118248280085",
-        "528886785204289556",
-        "783349189680824360",
-        "407535019897126913",
-        "927991390917492808",
-        "688222038611329060",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "a99092d4-d0b7-4d55-b625-0da09202cd43",
-      "last_edited_time": "2022-08-05T00:08:00.000Z",
-      "name": "TeamCommunity定例ミーティングに参加",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "Team Communityの定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-08-05",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "695157095846379562",
-        "450293970493505536",
-        "972123668073300009",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "6a3f4864-a090-4683-8b3e-a7d9c0bcb05b",
-      "last_edited_time": "2022-08-02T10:19:00.000Z",
-      "name": "IVS那覇に参加",
-      "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-      "description": "IVS那覇に参加しました。",
-      "date": {
-        "start": "2022-07-06",
-        "end": "2022-07-08",
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "852056349222371369",
-        "125422627715022848",
-        "779789414880510002",
-        "937906941257199667",
-        "474743118248280085",
-        "402820738568028160",
-        "918836683766661123",
-        "209242057460547584",
-        "921537485509636117",
-        "714639559459340320"
-      ]
-    },
-    {
-      "id": "39399cf8-7cc6-4635-986b-920db846e250",
-      "last_edited_time": "2022-08-02T10:19:00.000Z",
-      "name": "5000人記念イベント 開催に尽力",
-      "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
-      "description": "がんばりました。",
-      "date": {
-        "start": "2022-04-01",
-        "end": "2022-04-30",
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "390450654000316438",
-        "937906941257199667",
-        "700246962016092160",
-        "695157095846379562",
-        "450293970493505536",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "5fbbe604-caf9-434e-a98f-3d662dc136e9",
-      "last_edited_time": "2022-08-02T10:18:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "WG資料等の作成に関する打ち合わせを行いました。",
-      "date": {
-        "start": "2022-07-10",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "8b317a24-dae1-4236-83e1-12b8a9e14f44",
-      "last_edited_time": "2022-08-02T10:17:00.000Z",
-      "name": "TeamCommunity定例ミーティングに参加",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "Team Communityの定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-07-15",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "450293970493505536",
-        "937906941257199667",
-        "695157095846379562",
-        "772111610194034698",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "3bb7aec7-fc71-43ca-9d91-743dcf1023fa",
-      "last_edited_time": "2022-08-02T10:17:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "WG 定例ミーティングの資料作成を行いました",
-      "date": {
-        "start": "2022-07-14",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "528886785204289556",
-        "957641258719932416",
-        "631907069984899093",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "5dd1dd54-bd14-423e-b9f4-36aa2238931f",
-      "last_edited_time": "2022-08-02T10:16:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "WGの現状についてのオンボーディングを行いました。",
-      "date": {
-        "start": "2022-07-21",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "488544515976724480",
-        "783349189680824360"
-      ]
-    },
-    {
-      "id": "54fea107-eb48-4869-9922-0721913fde6a",
-      "last_edited_time": "2022-08-02T10:16:00.000Z",
-      "name": "企画Team 初回Kick Off Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "作業イメージの共有などを行いました。",
-      "date": {
-        "start": "2022-07-21",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "450293970493505536",
-        "474743118248280085",
-        "402820738568028160",
-        "918836683766661123",
-        "407535019897126913",
-        "528886785204289556",
-        "783349189680824360",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "c85e5bdf-d701-432c-97de-39a828786e46",
-      "last_edited_time": "2022-08-02T10:16:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "WG資料等の作成に関する打ち合わせを行いました。",
-      "date": {
-        "start": "2022-07-19",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "695157095846379562",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "0c7f1839-195d-4106-ad88-bfafba4467d3",
-      "last_edited_time": "2022-07-28T13:16:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "企画Teamのミーティングに参加しました",
-      "date": {
-        "start": "2022-07-28",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "474743118248280085",
-        "402820738568028160",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "c77ad736-14d6-4e10-81b6-2491b6e6f21e",
-      "last_edited_time": "2022-07-26T12:30:00.000Z",
-      "name": "web3起業勉強会を開催",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f7c91981-00ae-4c13-93cb-f02ef4ba4cb1/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220726%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220726T121224Z&X-Amz-Expires=86400&X-Amz-Signature=76be38d4cf9a992f50c3bf856a49dd16f70201cec75ffdc59591fc72d1ce3342&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-      "description": "起業に役立つスタートアップ・スクール",
-      "date": {
-        "start": "2022-07-26",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "450293970493505536",
-        "686023579631878145"
-      ]
-    },
-    {
-      "id": "e834c033-3002-4d8f-b360-422352a81e41",
-      "last_edited_time": "2022-07-21T22:39:00.000Z",
-      "name": "Team Designと Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "眠い",
-      "date": {
-        "start": "2022-07-22",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "338994227793100820",
-        "553916352306479104",
-        "686023579631878145",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "85a24eb9-5337-4c85-b51f-004aa72d642d",
-      "last_edited_time": "2022-07-19T23:07:00.000Z",
-      "name": "AMAで質問を行いました",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "「Fracton Ventures創業者に聞く、今後のWeb3トレンドと注目している領域」で質問を行い採用されました。",
-      "date": {
-        "start": "2022-07-16",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "450293970493505536"
-      ]
-    },
-    {
-      "id": "ccac5ae9-1cae-4f7b-b03d-4aa11b97d398",
-      "last_edited_time": "2022-07-19T23:07:00.000Z",
-      "name": "コロ助落選",
-      "image": "https://media.discordapp.net/attachments/986419146726211614/997096289915383848/unknown.png?width=370&height=442",
-      "description": "落選",
-      "date": {
-        "start": "2022-07-14",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145"
-      ]
-    },
-    {
-      "id": "1e888fc9-5871-41ab-9b22-4b9fb8906e70",
-      "last_edited_time": "2022-07-19T23:07:00.000Z",
-      "name": "IVS那覇で登壇",
-      "image": "https://media.discordapp.net/attachments/981208746103537744/994869469476298823/IMG_0444.jpg?width=331&height=442",
-      "description": "IVS那覇でセッションに登壇しました。",
-      "date": {
-        "start": "2022-07-08",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "125422627715022848"
-      ]
-    },
-    {
-      "id": "bc6d94fa-db5d-408a-b3dc-9f4b3943326e",
-      "last_edited_time": "2022-07-19T23:07:00.000Z",
-      "name": "WagumiDAO Adminとして活動",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "Adminとして活動しました。",
-      "date": {
-        "start": "2022-04-01",
-        "end": "2022-06-30",
-        "time_zone": null
-      },
-      "users": [
-        "488389192775106561",
-        "722678732766314499",
-        "779789414880510002",
-        "338994227793100820",
-        "340699948620185602",
-        "686023579631878145"
       ]
     }
   ]

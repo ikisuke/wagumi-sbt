@@ -10,8 +10,9 @@ const client = new Client({ auth: process.env.WAGUMI_SBT_API_TOKEN });
 
 const contributions = []
 
+const metadataDirectoryPath = process.env.METADATA_PATH;
+
 const getUserData = async (userId) => {
-	const metadataFilePath = `src/metadata/${userId}.json`;
 
 	const metadataStruct = {
 		name: "",
@@ -56,7 +57,7 @@ const getUserData = async (userId) => {
 	}
 
 	const json = JSON.stringify(metadataStruct, null, 2);
-	fs.writeFileSync(metadataFilePath, json);
+	fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
 
 }
 
@@ -82,6 +83,12 @@ const createMetadata = async () => {
         executionData = makeExecutionData(executionMessage);
 		const request = { 
 			database_id: process.env.WAGUMI_DATABASE_ID,
+			filter: {
+				property: 'publish',
+				checkbox: {
+					equals: true,
+				}
+			},
 			sorts: [
 				{
 					property: 'last_edited_time',
@@ -151,6 +158,7 @@ const pushContributionPage = async (pages) => {
 					return userId;
 				});
 				contributions.push(contribution);
+				console.log(contribution)
 	}
 
 	const jsonData = JSON.stringify(contributions,null,2);
