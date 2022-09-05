@@ -1,12 +1,12 @@
 {
   "name": "keiji",
   "description": "He/She is one of wagumi members.",
-  "image": "https://cdn.discordapp.com/avatars/918836683766661123/1fb26844cf5670b647e8ace166f9cb98.png",
-  "external_url": "https://wagumi-dev.notion.site/f84b9706504840848947d102e2fc7fa8",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=918836683766661123",
+  "external_url": "https://wagumi-dev.notion.site/c78f462e41a84d05afe6d2aad5b81f5f",
   "contributions": [
     {
-      "id": "a533cbd0-bff8-495b-83a1-53ba39ad32bc",
-      "last_edited_time": "2022-08-14T05:53:00.000Z",
+      "id": "b2bd1021-49c8-42ae-b5bc-8113f4d01c8a",
+      "last_edited_time": "2022-08-28T17:28:00.000Z",
       "name": "IVS那覇報告会に参加",
       "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
       "description": "IVS那覇報告会に参加しました。",
@@ -43,8 +43,8 @@
       ]
     },
     {
-      "id": "1f091f56-aa4a-4d55-8498-8d28a3e63938",
-      "last_edited_time": "2022-08-14T05:53:00.000Z",
+      "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
+      "last_edited_time": "2022-08-28T17:21:00.000Z",
       "name": "WG-TOKEN に参加",
       "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
       "description": "地獄のような作業をおこなってくれました。",
@@ -65,8 +65,8 @@
         "489624124780576785",
         "814473052204433428",
         "407535019897126913",
-        "528886785204289556",
         "783349189680824360",
+        "528886785204289556",
         "488544515976724480"
       ]
     }

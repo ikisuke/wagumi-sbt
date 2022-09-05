@@ -1,12 +1,12 @@
 {
   "name": "Mameta",
   "description": "He/She is one of wagumi members.",
-  "image": "https://cdn.discordapp.com/avatars/783349189680824360/ce9951ac1fc5b06a679d4445fcf74f62.png",
-  "external_url": "https://wagumi-dev.notion.site/718461e12a8f4331892be719b846aea2",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=783349189680824360",
+  "external_url": "https://wagumi-dev.notion.site/ec675ae602114dada72807edb1bb8444",
   "contributions": [
     {
-      "id": "1f091f56-aa4a-4d55-8498-8d28a3e63938",
-      "last_edited_time": "2022-08-14T05:53:00.000Z",
+      "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
+      "last_edited_time": "2022-08-28T17:21:00.000Z",
       "name": "WG-TOKEN に参加",
       "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
       "description": "地獄のような作業をおこなってくれました。",
@@ -27,8 +27,8 @@
         "489624124780576785",
         "814473052204433428",
         "407535019897126913",
-        "528886785204289556",
         "783349189680824360",
+        "528886785204289556",
         "488544515976724480"
       ]
     }

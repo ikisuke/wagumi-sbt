@@ -6,20 +6,20 @@ const { makeExecutionData } = require('./makeLog');
 
 const { Client } = require('@notionhq/client');
 
-const client = new Client({ auth: process.env.WAGUMI_SBT_API_TOKEN });
+const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 
 const contributions = []
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
-const getUserData = async (userId, tokens) => {
+const getUserData = async (userId) => {
 
 	const metadataStruct = {
 		name: "",
 		description: "He/She is one of wagumi members.",
 		image: "",
 		external_url:"",
-		tokens: tokens,
+		
 		contributions: [],
 	};
 
@@ -42,12 +42,11 @@ const getUserData = async (userId, tokens) => {
     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
     metadataStruct.name = tmp.results[0].title.plain_text;
 
-    tmp = await client.pages.retrieve({ page_id: page.id });
-    metadataStruct.image = tmp.icon.external.url;
-
 	let external_url_id = page.id
 
 	const replacedStr = external_url_id.replace(/-/g, "");
+
+	metadataStruct.image = process.env.SBT_IMAGE_URL + userId;
     
     metadataStruct.external_url = `https://wagumi-dev.notion.site/${replacedStr}`;
 
@@ -74,11 +73,11 @@ const userSearch = async() => {
 	return userIds;
 }
 
-const getTokenData = async () => {
-	const tokens = [];
-	//Tokenの情報を取ってくる
-	return tokens;
-}
+// const getTokenData = async () => {
+// 	const tokens = [];
+// 	//Tokenの情報を取ってくる
+// 	return tokens;
+// }
 
 const createMetadata = async () => {
 	const executionMessage = 'create metadata';
@@ -86,6 +85,7 @@ const createMetadata = async () => {
 
 	try {
         executionData = makeExecutionData(executionMessage);
+
 		const request = { 
 			database_id: process.env.WAGUMI_DATABASE_ID,
 			filter: {
@@ -115,8 +115,8 @@ const createMetadata = async () => {
 
 		for(let userId of userIds) {
 			//TODO
-			const tokens = await getTokenData(userId);
-			getUserData(userId, tokens);
+			// const tokens = await getTokenData(userId);
+			getUserData(userId);
 		} 
 	fs.writeFileSync("src/executionData.json", executionData);
 
@@ -165,7 +165,7 @@ const pushContributionPage = async (pages) => {
 					return userId;
 				});
 				contributions.push(contribution);
-				console.log(contribution)
+				// console.log(contribution)
 	}
 
 	const jsonData = JSON.stringify(contributions,null,2);

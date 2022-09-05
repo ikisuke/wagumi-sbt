@@ -8,7 +8,7 @@ const { Client } = require('@notionhq/client');
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require('./makeLog');
 
-const client = new Client({ auth: process.env.WAGUMI_SBT_API_TOKEN });
+const client = new Client({ auth: process.env.WAGUMI_SYOGUN_API_TOKEN });
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
@@ -196,7 +196,7 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
         }
     }
 
-    const metadataFilePath = `src/metadata/${userId}.json`;
+    const metadataFilePath =  `${metadataDirectoryPath}${userId}.json`;
 
 	const metadataStruct = {
 		name: "",
@@ -225,8 +225,7 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
     metadataStruct.name = tmp.results[0].title.plain_text;
 
-    tmp = await client.pages.retrieve({ page_id: page.id });
-    metadataStruct.image = tmp.icon.external.url;
+	metadataStruct.image = process.env.SBT_IMAGE_URL + userId;
 
 	let external_url_id = page.id
 

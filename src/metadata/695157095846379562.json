@@ -1,47 +1,58 @@
 {
   "name": "daikichi",
   "description": "He/She is one of wagumi members.",
-  "image": "https://cdn.discordapp.com/avatars/695157095846379562/cebd087766a062166093204edccbb689.png",
-  "external_url": "https://wagumi-dev.notion.site/9f2134fdd56246859220a0d551174783",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=695157095846379562",
+  "external_url": "https://wagumi-dev.notion.site/c9ca60c704094058bd73a92e2a79544f",
   "contributions": [
     {
-      "id": "39399cf8-7cc6-4635-986b-920db846e250",
-      "last_edited_time": "2022-09-04T07:03:00.000Z",
-      "name": "5000人記念イベント 開催に尽力",
-      "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
-      "description": "がんばりました。",
+      "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
+      "last_edited_time": "2022-08-28T17:21:00.000Z",
+      "name": "WG-TOKEN に参加",
+      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
+      "description": "地獄のような作業をおこなってくれました。",
       "date": {
-        "start": "2022-04-01",
-        "end": "2022-04-30",
+        "start": "2022-07-01",
+        "end": "2022-09-30",
         "time_zone": null
       },
       "users": [
-        "686023579631878145",
-        "390450654000316438",
+        "488389192775106561",
+        "340699948620185602",
         "937906941257199667",
-        "700246962016092160",
+        "686023579631878145",
         "695157095846379562",
-        "450293970493505536",
+        "402820738568028160",
+        "496541494480601092",
+        "918836683766661123",
+        "489624124780576785",
+        "814473052204433428",
+        "407535019897126913",
+        "783349189680824360",
+        "528886785204289556",
         "488544515976724480"
       ]
     },
     {
-      "id": "8b317a24-dae1-4236-83e1-12b8a9e14f44",
-      "last_edited_time": "2022-09-04T06:50:00.000Z",
-      "name": "TeamCommunity定例ミーティングに参加",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "Team Communityの定例ミーティングに参加しました。",
+      "id": "0c910b0c-a8d4-4478-8662-dba62da8b6be",
+      "last_edited_time": "2022-08-28T17:09:00.000Z",
+      "name": "VC Meeting",
+      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
+      "description": "第4回定例ミーティングに参加しました。",
       "date": {
-        "start": "2022-07-15",
+        "start": "2022-07-17",
         "end": null,
         "time_zone": null
       },
       "users": [
+        "488389192775106561",
+        "340699948620185602",
         "686023579631878145",
-        "450293970493505536",
-        "937906941257199667",
         "695157095846379562",
-        "772111610194034698",
+        "937906941257199667",
+        "402820738568028160",
+        "407535019897126913",
+        "528886785204289556",
+        "899388691133366312",
         "488544515976724480"
       ]
     }
