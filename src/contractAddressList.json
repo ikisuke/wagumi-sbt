@@ -1,0 +1,18 @@
+{
+    "list": [
+        {
+            "name": "Wagumi Cats",
+            "constract_address": "0x6144d927ee371de7e7f8221b596f3432e7a8e6d9"
+        },
+        {
+            "name": "Demo address",
+            "constract_address": "test"
+        },
+        {
+            "name": "Demo address",
+            "constract_address": "test"
+        }
+    ]
+   
+}
+   
