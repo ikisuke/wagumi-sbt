@@ -13,6 +13,8 @@ const { makeExecutionData } = require('./src/lib/makeLog');
       makeExecutionData('create metadata');
     } else if (firstArg == 'update') {
       metadataUpdate.update();
+    } else if (firstArg == '') {
+      metadataCreate.getTokenData();
     } else {
       throw new Error('コマンドが違います。');
     }

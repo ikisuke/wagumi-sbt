@@ -13,9 +13,6 @@ const client = new Client({ auth: process.env.WAGUMI_SBT_API_TOKEN });
 
 const contributions = [];
 
-// tokens情報取得のための準備
-const ownerAddr = '0x7DcF131D0f8Bec6CaEa72d41Da9dB3dC4845644D';
-// const ownerAddr = '';
 let nftsForOwner;
 const chains = [
   {
@@ -114,7 +111,8 @@ const userSearch = async () => {
 };
 
 // tokens情報取得
-// userIdを引数にとる。EOAとの結びつきを考える
+// TODO userIdを引数にとる。EOAとの結びつきを考える
+const ownerAddr = '0x7DcF131D0f8Bec6CaEa72d41Da9dB3dC4845644D';
 const getTokenData = async () => {
   if (ownerAddr.length === 42) {
     for (const chain of chains) {
@@ -167,9 +165,9 @@ const getNFTs = async (chain, pageKey) => {
     return;
   }
 };
-(async () => {
-  await getTokenData();
-})();
+// (async () => {
+//   await getTokenData();
+// })();
 
 const createMetadata = async () => {
   const executionMessage = 'create metadata';
