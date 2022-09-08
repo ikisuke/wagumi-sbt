@@ -231,7 +231,7 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
 
 	const replacedStr = external_url_id.replace(/-/g, "");
     
-    metadataStruct.external_url = `https://wagumi-dev.notion.site/${replacedStr}`;
+    metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
     const json = JSON.stringify(metadataStruct, null, 2);
 	fs.writeFileSync(metadataFilePath, json);

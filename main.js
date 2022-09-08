@@ -10,6 +10,7 @@ const { makeExecutionData } = require('./src/lib/makeLog');
   try {
     if (firstArg == 'create') {
       await metadataCreate.createMetadata();
+      console.log('success!')
       makeExecutionData('create metadata');
     } else if (firstArg == 'update') {
       metadataUpdate.update();

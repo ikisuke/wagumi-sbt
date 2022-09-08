@@ -72,6 +72,7 @@ const getUserData = async (userId) => {
     },
   };
 
+  try {
   const response = await client.databases.query(request);
 
   const page = response.results[0];
@@ -93,7 +94,7 @@ const getUserData = async (userId) => {
 
 	metadataStruct.image = process.env.SBT_IMAGE_URL + userId;
     
-    metadataStruct.external_url = `https://wagumi-dev.notion.site/${replacedStr}`;
+    metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
   for (const contribution of contributions) {
     if (contribution.users.includes(userId)) {
@@ -103,6 +104,9 @@ const getUserData = async (userId) => {
 
   const json = JSON.stringify(metadataStruct, null, 2);
   fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
+	} catch(error) {
+		console.error('create user data failed', error);
+	}
 };
 
 const userSearch = async () => {
@@ -218,7 +222,7 @@ const createMetadata = async () => {
     }
     fs.writeFileSync('src/executionData.json', executionData);
   } catch (error) {
-    console.error(error);
+    console.error('create metadata failed',error);
   }
 };
 
