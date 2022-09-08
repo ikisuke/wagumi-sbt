@@ -11,6 +11,16 @@ const { Client } = require('@notionhq/client');
 
 const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 
+let contribution = {
+	id: '',
+	last_edited_time: '',
+	name: '',
+	image: '',
+	description: '',
+	date: '',
+	users: [],
+};
+
 const contributions = [];
 
 
@@ -96,9 +106,15 @@ const getUserData = async (userId) => {
     
     metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
-  for (const contribution of contributions) {
+	const metadataJson = JSON.parse(fs.readFileSync('src/metadata.json', 'utf-8'));
+
+	console.log(metadataJson)
+
+  for (const contribution of metadataJson) {
     if (contribution.users.includes(userId)) {
-      metadataStruct.properties.contributions.push(contribution);
+		const userContribution = contribution;
+		delete userContribution.users;
+      metadataStruct.properties.contributions.push(userContribution);
     }
   }
 
@@ -216,9 +232,7 @@ const createMetadata = async () => {
     const userIds = await userSearch();
 
     for (let userId of userIds) {
-      //TODO
-    //   const tokens = await getTokenData(userId);
-      getUserData(userId);
+      await getUserData(userId);
     }
     fs.writeFileSync('src/executionData.json', executionData);
   } catch (error) {
@@ -230,40 +244,31 @@ const pushContributionPage = async (pages) => {
   for (const page of pages.results) {
     let tmp;
 
-    let contribution = {
-      id: '',
-      last_edited_time: '',
-      name: '',
-      image: '',
-      description: '',
-      date: '',
-      users: [],
-    };
-	
+	const metadataContribution = Object.assign({},contribution)	;
 			//contributeにデータを追加するためのトリガー。falseの場合データ追加をしない。(計算数を減らす目的)
 	
 				
-				contribution.id = page.id;
-				contribution.last_edited_time = page.last_edited_time
+				metadataContribution.id = page.id;
+				metadataContribution.last_edited_time = page.last_edited_time
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
-				contribution.name = tmp.results[0].title.plain_text;
+				metadataContribution.name = tmp.results[0].title.plain_text;
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id});
-				contribution.image = tmp.files[0].name;
+				metadataContribution.image = tmp.files[0].name;
 	
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id});
-				contribution.description = tmp.results[0].rich_text.plain_text;
+				metadataContribution.description = tmp.results[0].rich_text.plain_text;
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
-				contribution.date = tmp.date;
+				metadataContribution.date = tmp.date;
 	
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
-				contribution.users = tmp.results.map((user) =>{
+				metadataContribution.users = tmp.results.map((user) =>{
 						let userId = user.rich_text.plain_text;
 					return userId;
 				});
-				contributions.push(contribution);
+				contributions.push(metadataContribution);
 				// console.log(contribution)
 	}
   const jsonData = JSON.stringify(contributions, null, 2);

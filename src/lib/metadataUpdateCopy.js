@@ -8,7 +8,7 @@ const { Client } = require('@notionhq/client');
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require('./makeLog');
 
-const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
+const client = new Client({ auth: process.env.WAGUMI_SBT_API_TOKEN });
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
@@ -89,7 +89,7 @@ const updateContributionPage = async () => {
 
         const lastExecutionTime = logFile[0].time;
             const request = { 
-                database_id: process.env.WAGUMI_DATABASE_ID,
+                database_id: process.env.WAGUMI_TEST_DB_ID,
                 //古いものから順番に追加していくので、updateの場合は昇順
                 sorts: [
                     {
@@ -223,7 +223,7 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
 	};
 
     const request = { 
-		database_id: process.env.WAGUMI_USER_DATABASE_ID,
+		database_id: process.env.WAGUMI_TEST_USER_ID,
 		filter: {
 				property: 'id',
 				rich_text: {
@@ -254,9 +254,18 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
 }
 
 
+
 const update = async() => {
     await updateContributionPage();
 }
 
 exports.update = update;
 
+(async () => {
+    try {
+        await update();
+    } catch (error) {
+      console.error(error.message);
+    }
+  })();
+  
