@@ -26,7 +26,7 @@ const compareUsers = async (contribution) => {
     return comparedUsers;
 }
 
-//新しいページが追加したときに追加処理をかける
+//新しいページが追加されたときに追加処理をかける
 const patchUserMetadata = async(contribution, userId) => {
     if(!fs.existsSync(metadataDirectoryPath + `${userId}.json`)) {
         //ファイルが存在していないときには新規作成すべきだが、createUserMetadataにて新規作成処理を施している。

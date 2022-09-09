@@ -8,6 +8,18 @@
     "sns": {},
     "contributions": [
       {
+        "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
+        "last_edited_time": "2022-09-08T23:59:00.000Z",
+        "name": "WG-TOKEN に参加",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
+        "description": "地獄のような作業をおこなってくれました。",
+        "date": {
+          "start": "2022-07-01",
+          "end": "2022-09-30",
+          "time_zone": null
+        }
+      },
+      {
         "id": "b2bd1021-49c8-42ae-b5bc-8113f4d01c8a",
         "last_edited_time": "2022-08-28T17:28:00.000Z",
         "name": "IVS那覇報告会に参加",
@@ -16,18 +28,6 @@
         "date": {
           "start": "2022-07-14",
           "end": null,
-          "time_zone": null
-        }
-      },
-      {
-        "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
-        "last_edited_time": "2022-08-28T17:21:00.000Z",
-        "name": "WG-TOKEN に参加",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-        "description": "地獄のような作業をおこなってくれました。",
-        "date": {
-          "start": "2022-07-01",
-          "end": "2022-09-30",
           "time_zone": null
         }
       }
