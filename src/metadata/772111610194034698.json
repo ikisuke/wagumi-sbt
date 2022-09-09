@@ -2,45 +2,23 @@
   "name": "Manabazu",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=772111610194034698",
-  "external_url": "https://wagumi-dev.notion.site/3dd76800738546cb81c1e3e7fc79f5da",
-  "contributions": [
-    {
-      "id": "b2bd1021-49c8-42ae-b5bc-8113f4d01c8a",
-      "last_edited_time": "2022-08-28T17:28:00.000Z",
-      "name": "IVS那覇報告会に参加",
-      "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-      "description": "IVS那覇報告会に参加しました。",
-      "date": {
-        "start": "2022-07-14",
-        "end": null,
-        "time_zone": null
-      },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "340699948620185602",
-        "474743118248280085",
-        "921537485509636117",
-        "376647703872012289",
-        "809128177976344696",
-        "920998877824421908",
-        "528886785204289556",
-        "884411939453825056",
-        "754626254371553331",
-        "553916352306479104",
-        "915271495561932901",
-        "757214700919324772",
-        "772111610194034698",
-        "917755486466609172",
-        "918836683766661123",
-        "667736363294130207",
-        "933884242457415750",
-        "905223150676103211",
-        "978434356441923634",
-        "361014131714686978",
-        "936042896644259890",
-        "488544515976724480"
-      ]
-    }
-  ]
+  "external_url": "https://wagumi-sbt.notion.site/3dd76800738546cb81c1e3e7fc79f5da",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "id": "b2bd1021-49c8-42ae-b5bc-8113f4d01c8a",
+        "last_edited_time": "2022-08-28T17:28:00.000Z",
+        "name": "IVS那覇報告会に参加",
+        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
+        "description": "IVS那覇報告会に参加しました。",
+        "date": {
+          "start": "2022-07-14",
+          "end": null,
+          "time_zone": null
+        }
+      }
+    ]
+  }
 }

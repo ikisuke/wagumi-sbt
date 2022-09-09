@@ -2,115 +2,83 @@
   "name": "araimono.KaiWai",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=686023579631878145",
-  "external_url": "https://wagumi-dev.notion.site/97f37d3abecd47f5bc3ceef41c2462dd",
-  "contributions": [
-    {
-      "id": "b2bd1021-49c8-42ae-b5bc-8113f4d01c8a",
-      "last_edited_time": "2022-08-28T17:28:00.000Z",
-      "name": "IVS那覇報告会に参加",
-      "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-      "description": "IVS那覇報告会に参加しました。",
-      "date": {
-        "start": "2022-07-14",
-        "end": null,
-        "time_zone": null
+  "external_url": "https://wagumi-sbt.notion.site/97f37d3abecd47f5bc3ceef41c2462dd",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
+        "last_edited_time": "2022-09-08T23:59:00.000Z",
+        "name": "WG-TOKEN に参加",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
+        "description": "地獄のような作業をおこなってくれました。",
+        "date": {
+          "start": "2022-07-01",
+          "end": "2022-09-30",
+          "time_zone": null
+        }
       },
-      "users": [
-        "686023579631878145",
-        "937906941257199667",
-        "340699948620185602",
-        "474743118248280085",
-        "921537485509636117",
-        "376647703872012289",
-        "809128177976344696",
-        "920998877824421908",
-        "528886785204289556",
-        "884411939453825056",
-        "754626254371553331",
-        "553916352306479104",
-        "915271495561932901",
-        "757214700919324772",
-        "772111610194034698",
-        "917755486466609172",
-        "918836683766661123",
-        "667736363294130207",
-        "933884242457415750",
-        "905223150676103211",
-        "978434356441923634",
-        "361014131714686978",
-        "936042896644259890",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
-      "last_edited_time": "2022-08-28T17:21:00.000Z",
-      "name": "WG-TOKEN に参加",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-      "description": "地獄のような作業をおこなってくれました。",
-      "date": {
-        "start": "2022-07-01",
-        "end": "2022-09-30",
-        "time_zone": null
+      {
+        "id": "48574697-5216-4059-993c-e02a289ba299",
+        "last_edited_time": "2022-09-08T13:15:00.000Z",
+        "name": "和組web3起業勉強会に参加",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "和組web3起業勉強会 特別編～和組SBTリリースに向けて～ に参加しました。",
+        "date": {
+          "start": "2022-09-08",
+          "end": null,
+          "time_zone": null
+        }
       },
-      "users": [
-        "488389192775106561",
-        "340699948620185602",
-        "937906941257199667",
-        "686023579631878145",
-        "695157095846379562",
-        "402820738568028160",
-        "496541494480601092",
-        "918836683766661123",
-        "489624124780576785",
-        "814473052204433428",
-        "407535019897126913",
-        "783349189680824360",
-        "528886785204289556",
-        "488544515976724480"
-      ]
-    },
-    {
-      "id": "b83bbea0-5c7d-4932-b3e7-870ccf29213e",
-      "last_edited_time": "2022-08-28T17:19:00.000Z",
-      "name": "WagumiDAO Adminとして活動",
-      "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-      "description": "Adminとして活動しました。",
-      "date": {
-        "start": "2022-07-01",
-        "end": "2022-09-30",
-        "time_zone": null
+      {
+        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+        "last_edited_time": "2022-09-06T04:17:00.000Z",
+        "name": "和組東京オフ会に参加",
+        "image": "Untitled.png",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
+        "date": {
+          "start": "2022-09-09",
+          "end": null,
+          "time_zone": null
+        }
       },
-      "users": [
-        "340699948620185602",
-        "686023579631878145",
-        "488389192775106561",
-        "852056349222371369"
-      ]
-    },
-    {
-      "id": "0c910b0c-a8d4-4478-8662-dba62da8b6be",
-      "last_edited_time": "2022-08-28T17:09:00.000Z",
-      "name": "VC Meeting",
-      "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-      "description": "第4回定例ミーティングに参加しました。",
-      "date": {
-        "start": "2022-07-17",
-        "end": null,
-        "time_zone": null
+      {
+        "id": "b2bd1021-49c8-42ae-b5bc-8113f4d01c8a",
+        "last_edited_time": "2022-08-28T17:28:00.000Z",
+        "name": "IVS那覇報告会に参加",
+        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
+        "description": "IVS那覇報告会に参加しました。",
+        "date": {
+          "start": "2022-07-14",
+          "end": null,
+          "time_zone": null
+        }
       },
-      "users": [
-        "488389192775106561",
-        "340699948620185602",
-        "686023579631878145",
-        "695157095846379562",
-        "937906941257199667",
-        "402820738568028160",
-        "407535019897126913",
-        "528886785204289556",
-        "899388691133366312",
-        "488544515976724480"
-      ]
-    }
-  ]
+      {
+        "id": "b83bbea0-5c7d-4932-b3e7-870ccf29213e",
+        "last_edited_time": "2022-08-28T17:19:00.000Z",
+        "name": "WagumiDAO Adminとして活動",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "Adminとして活動しました。",
+        "date": {
+          "start": "2022-07-01",
+          "end": "2022-09-30",
+          "time_zone": null
+        }
+      },
+      {
+        "id": "0c910b0c-a8d4-4478-8662-dba62da8b6be",
+        "last_edited_time": "2022-08-28T17:09:00.000Z",
+        "name": "VC Meeting",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
+        "description": "第4回定例ミーティングに参加しました。",
+        "date": {
+          "start": "2022-07-17",
+          "end": null,
+          "time_zone": null
+        }
+      }
+    ]
+  }
 }

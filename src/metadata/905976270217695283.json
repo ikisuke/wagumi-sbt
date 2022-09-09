@@ -1,8 +1,8 @@
 {
-  "name": "CieloChiara",
+  "name": "kazy39",
   "description": "He/She is one of wagumi members.",
-  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=927991390917492808",
-  "external_url": "https://wagumi-sbt.notion.site/612f24ce901d4c4982eb6c3de7c6f3aa",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=905976270217695283",
+  "external_url": "https://wagumi-sbt.notion.site/769d65b690004f918948d8f3ffec0baf",
   "properties": {
     "toknes": [],
     "sns": {},
@@ -15,18 +15,6 @@
         "description": "和組web3起業勉強会 特別編～和組SBTリリースに向けて～ に参加しました。",
         "date": {
           "start": "2022-09-08",
-          "end": null,
-          "time_zone": null
-        }
-      },
-      {
-        "id": "a86f3be8-880d-4946-9fa4-7bf664700714",
-        "last_edited_time": "2022-08-28T17:01:00.000Z",
-        "name": "Meeting",
-        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-        "description": "WGに絡んだ意識の共有を行いました",
-        "date": {
-          "start": "2022-08-02",
           "end": null,
           "time_zone": null
         }

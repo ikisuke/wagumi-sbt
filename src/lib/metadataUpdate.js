@@ -8,15 +8,14 @@ const { Client } = require('@notionhq/client');
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require('./makeLog');
 
-const client = new Client({ auth: process.env.WAGUMI_SYOGUN_API_TOKEN });
+const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
 //usersの比較
 const compareUsers = async (contribution) => {
-    const dataForComparingUser = fs.readFileSync(metadataDirectoryPath + `${contribution.users[0]}.json`);
-    const dataForComparingUsersJson = JSON.parse(dataForComparingUser);
-    const targetPage = dataForComparingUsersJson.contributions.find((result) => result.id === contribution.id);
+    const dataForComparingUsersJson = JSON.parse(fs.readFileSync(`src/metadata.json`));
+    const targetPage = dataForComparingUsersJson.find((result) => result.id === contribution.id);
     if(!targetPage) {
         for(const userId of contribution.users) {
             await patchUserMetadata(contribution, userId);  
@@ -27,31 +26,44 @@ const compareUsers = async (contribution) => {
     return comparedUsers;
 }
 
-//usersを比較したときに
+//新しいページが追加されたときに追加処理をかける
 const patchUserMetadata = async(contribution, userId) => {
-    const dataForComparingUser = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
-    const dataForComparingUsersJson = JSON.parse(dataForComparingUser);
-    dataForComparingUsersJson.contributions.unshift(contribution);
-    const json = JSON.stringify(dataForComparingUsersJson   , null, 2);
-    fs.writeFileSync(metadataDirectoryPath + `${contribution.users[0]}.json`, json);
+    if(!fs.existsSync(metadataDirectoryPath + `${userId}.json`)) {
+        //ファイルが存在していないときには新規作成すべきだが、createUserMetadataにて新規作成処理を施している。
+        //しかし、あまり良い書き方とは言えないので、こちらの方から誘導したほうがいいかもしれない。
+        //いやでも、ここからさらに新しい関数に飛ばすとなると開発者としても関数がネストのようになってしまうため運用保守がしづらいかもしれない。
+        //やっぱりこのままに一応しておく
+        return
+    }
+    const deletedUsersPropertiesContribution = Object.assign({}, contribution);
+    delete deletedUsersPropertiesContribution.users;
+    const dataForComparingUsersJson = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
+    dataForComparingUsersJson.properties.contributions.unshift(deletedUsersPropertiesContribution);
+    const json = JSON.stringify(dataForComparingUsersJson, null, 2);
+    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
 }
+
 
 //比較後にuserが消えていた場合に、該当ユーザーのcontributionを削除
 const deleteContribution = async(userId, pageId) => {
     const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
     const comparedUserData = JSON.parse(comparedUserFile);
-    const contributionIndex = comparedUserData.contributions.findIndex((result) => result.id === pageId);
+    console.log(comparedUserData);
+    const contributionIndex = comparedUserData.properties.contributions.findIndex((result) => result.id === pageId);
     comparedUserData.contributions.splice(contributionIndex, 1);
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
 }
 
 const updateContribution = async(userId, contribution) => {
+    console.log('update contribution');
+    const deletedUsersPropertiesContribution = Object.assign({}, contribution);
+    delete deletedUsersPropertiesContribution.users;
     const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
     const comparedUserData = JSON.parse(comparedUserFile);
-    const contributionIndex = comparedUserData.contributions.findIndex((result) => result.id === contribution.id);
-    comparedUserData.contributions.splice(contributionIndex, 1);
-    comparedUserData.contributions.unshift(contribution);
+    const contributionIndex = comparedUserData.properties.contributions.findIndex((result) => result.id === deletedUsersPropertiesContribution.id);
+    comparedUserData.properties.contributions.splice(contributionIndex, 1);
+    comparedUserData.properties.contributions.unshift(deletedUsersPropertiesContribution);
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`,json)
 }
@@ -146,7 +158,6 @@ const updateContributionPage = async () => {
                 });
 
                 const comparedUsers = await compareUsers(contribution);
-                console.log(comparedUsers);
                 for(const comparedUser of comparedUsers) {
                     deleteContribution(comparedUser, contribution.id);
                 }
@@ -179,8 +190,7 @@ const updateContributionPage = async () => {
 
 const createUserMetadata = async(userId, lastExecutionTime) => {
     const lastExecutionUnix = new Date(lastExecutionTime);
-    const metadataFile = fs.readFileSync('src/metadata.json');
-    const metadataJson = JSON.parse(metadataFile);
+    const metadataJson = JSON.parse(fs.readFileSync('src/metadata.json'));
 
     const contributions = [];
 
@@ -190,7 +200,9 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
             forComparingUnix > lastExecutionUnix && 
             contribution.users.includes(userId)
         ) {
-            contributions.push(contribution);
+            const deletedUsersPropertiesContribution = Object.assign({}, contribution);
+            delete deletedUsersPropertiesContribution.users;
+            contributions.push(deletedUsersPropertiesContribution);
         } else if(lastExecutionUnix > forComparingUnix) {
             break
         }
@@ -203,7 +215,11 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
 		description: "He/She is one of wagumi members.",
 		image: "",
 		external_url:"",
-		contributions: contributions,
+        properties: {
+            toknes: [],
+            sns: {},
+            contributions: contributions
+        },
 	};
 
     const request = { 
@@ -231,12 +247,11 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
 
 	const replacedStr = external_url_id.replace(/-/g, "");
     
-    metadataStruct.external_url = `https://wagumi-dev.notion.site/${replacedStr}`;
+    metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
     const json = JSON.stringify(metadataStruct, null, 2);
 	fs.writeFileSync(metadataFilePath, json);
 }
-
 
 
 const update = async() => {
