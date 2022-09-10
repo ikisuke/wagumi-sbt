@@ -8,25 +8,25 @@
     "sns": {},
     "contributions": [
       {
-        "id": "48574697-5216-4059-993c-e02a289ba299",
-        "last_edited_time": "2022-09-08T13:15:00.000Z",
-        "name": "和組web3起業勉強会に参加",
-        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-        "description": "和組web3起業勉強会 特別編～和組SBTリリースに向けて～ に参加しました。",
+        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
+        "last_edited_time": "2022-09-10T04:52:00.000Z",
+        "name": "Wagumi SBTを発行",
+        "image": "6df1bc1186205078af668045961f0a67.jpg",
+        "description": "Wagumi SBTを申請し、発行されました。",
         "date": {
-          "start": "2022-09-08",
+          "start": "2022-09-09",
           "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "a86f3be8-880d-4946-9fa4-7bf664700714",
-        "last_edited_time": "2022-08-28T17:01:00.000Z",
-        "name": "Meeting",
-        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-        "description": "WGに絡んだ意識の共有を行いました",
+        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+        "last_edited_time": "2022-09-09T13:54:00.000Z",
+        "name": "和組東京オフ会に参加",
+        "image": "FcL8476aIAAulJe.jpg",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
         "date": {
-          "start": "2022-08-02",
+          "start": "2022-09-09",
           "end": null,
           "time_zone": null
         }

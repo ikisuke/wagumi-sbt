@@ -1,0 +1,36 @@
+{
+  "name": "Tamakichi",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=688222038611329060",
+  "external_url": "https://wagumi-sbt.notion.site/b43c8e4889ad45f883626621580e77a9",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
+        "last_edited_time": "2022-09-10T04:52:00.000Z",
+        "name": "Wagumi SBTを発行",
+        "image": "6df1bc1186205078af668045961f0a67.jpg",
+        "description": "Wagumi SBTを申請し、発行されました。",
+        "date": {
+          "start": "2022-09-09",
+          "end": null,
+          "time_zone": null
+        }
+      },
+      {
+        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+        "last_edited_time": "2022-09-09T13:54:00.000Z",
+        "name": "和組東京オフ会に参加",
+        "image": "FcL8476aIAAulJe.jpg",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
+        "date": {
+          "start": "2022-09-09",
+          "end": null,
+          "time_zone": null
+        }
+      }
+    ]
+  }
+}

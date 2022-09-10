@@ -1,0 +1,24 @@
+{
+  "name": "Thomas(SnowX)",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=722678732766314499",
+  "external_url": "https://wagumi-sbt.notion.site/4c91f1349ab64994a1e11ceddc64a9d7",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "id": "772bccfb-9c9c-4b51-8c09-eaa8e0657f95",
+        "last_edited_time": "2022-09-09T22:58:00.000Z",
+        "name": "WagumiDAO Adminとして活動",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "Adminとして活動しました。",
+        "date": {
+          "start": "2022-04-01",
+          "end": "2022-06-30",
+          "time_zone": null
+        }
+      }
+    ]
+  }
+}
