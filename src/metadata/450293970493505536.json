@@ -2,44 +2,30 @@
   "name": "muarata",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=450293970493505536",
-  "external_url": "https://wagumi-sbt.notion.site/21d4fe5ca2d94a239115353eb23773b0",
+  "external_url": "https://wagumi-sbt.notion.site/f64dc2374ee44385aee9f550fac827df",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
-        "last_edited_time": "2022-09-10T04:52:00.000Z",
-        "name": "Wagumi SBTを発行",
-        "image": "6df1bc1186205078af668045961f0a67.jpg",
-        "description": "Wagumi SBTを申請し、発行されました。",
+        "id": "8b317a24-dae1-4236-83e1-12b8a9e14f44",
+        "name": "TeamCommunity定例ミーティングに参加",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "Team Communityの定例ミーティングに参加しました。",
         "date": {
-          "start": "2022-09-09",
+          "start": "2022-07-15",
           "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "9687b7b9-584b-4223-b873-966d4d317161",
-        "last_edited_time": "2022-09-09T22:58:00.000Z",
+        "id": "39399cf8-7cc6-4635-986b-920db846e250",
         "name": "5000人記念イベント 開催に尽力",
         "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
         "description": "がんばりました。",
         "date": {
           "start": "2022-04-01",
           "end": "2022-04-30",
-          "time_zone": null
-        }
-      },
-      {
-        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
-        "last_edited_time": "2022-09-09T13:54:00.000Z",
-        "name": "和組東京オフ会に参加",
-        "image": "FcL8476aIAAulJe.jpg",
-        "description": "和組として国内単独開催初となるオフ会に参加しました。",
-        "date": {
-          "start": "2022-09-09",
-          "end": null,
           "time_zone": null
         }
       }

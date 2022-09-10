@@ -2,26 +2,24 @@
   "name": "JUN",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=852056349222371369",
-  "external_url": "https://wagumi-sbt.notion.site/66c34b74d69b4bdabb22b1704a87c2ce",
+  "external_url": "https://wagumi-sbt.notion.site/20ead66feb3b4ecf8af534c641e60a1d",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
-        "last_edited_time": "2022-09-09T23:01:00.000Z",
-        "name": "IVS那覇に参加",
-        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇に参加しました。",
+        "id": "0eb35f27-1646-44b9-af8b-2abfaf169771",
+        "name": "TEST",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "test for updating\naaaaaaaaasdfadfaeaafa\nFAeffafafafaf\n\nfafefaefagaaqgagefaこんにちは",
         "date": {
-          "start": "2022-07-06",
-          "end": "2022-07-08",
+          "start": "2022-08-17",
+          "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "b83bbea0-5c7d-4932-b3e7-870ccf29213e",
-        "last_edited_time": "2022-08-28T17:19:00.000Z",
+        "id": "1e7078fc-1429-4ca9-b44b-acced5f927a8",
         "name": "WagumiDAO Adminとして活動",
         "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
         "description": "Adminとして活動しました。",

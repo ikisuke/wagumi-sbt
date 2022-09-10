@@ -9,7 +9,6 @@
     "contributions": [
       {
         "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
-        "last_edited_time": "2022-09-10T04:52:00.000Z",
         "name": "Wagumi SBTを発行",
         "image": "6df1bc1186205078af668045961f0a67.jpg",
         "description": "Wagumi SBTを申請し、発行されました。",
@@ -20,26 +19,24 @@
         }
       },
       {
-        "id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
-        "last_edited_time": "2022-09-09T23:01:00.000Z",
-        "name": "IVS那覇に参加",
-        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇に参加しました。",
-        "date": {
-          "start": "2022-07-06",
-          "end": "2022-07-08",
-          "time_zone": null
-        }
-      },
-      {
         "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
-        "last_edited_time": "2022-09-09T13:54:00.000Z",
         "name": "和組東京オフ会に参加",
         "image": "FcL8476aIAAulJe.jpg",
         "description": "和組として国内単独開催初となるオフ会に参加しました。",
         "date": {
           "start": "2022-09-09",
           "end": null,
+          "time_zone": null
+        }
+      },
+      {
+        "id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
+        "name": "IVS那覇に参加",
+        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
+        "description": "IVS那覇に参加しました。",
+        "date": {
+          "start": "2022-07-06",
+          "end": "2022-07-08",
           "time_zone": null
         }
       }
