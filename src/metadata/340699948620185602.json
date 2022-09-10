@@ -2,35 +2,46 @@
   "name": "Takeshi",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=340699948620185602",
-  "external_url": "https://wagumi-sbt.notion.site/9088726c04054babae1616d9eb0243be",
+  "external_url": "https://wagumi-sbt.notion.site/cd1ef15112834c968ab5baf2c14fdc11",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "id": "9eade0d7-bdc0-4108-b422-ca5040f29098",
-        "name": "VC Meeting",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-        "description": "第4回定例ミーティングに参加しました。",
+        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
+        "name": "Wagumi SBTを発行",
+        "image": "6df1bc1186205078af668045961f0a67.jpg",
+        "description": "Wagumi SBTを申請し、発行されました。",
         "date": {
-          "start": "2022-07-17",
+          "start": "2022-09-09",
           "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "a533cbd0-bff8-495b-83a1-53ba39ad32bc",
-        "name": "IVS那覇報告会に参加",
-        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇報告会に参加しました。",
+        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+        "name": "和組東京オフ会に参加",
+        "image": "FcL8476aIAAulJe.jpg",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
         "date": {
-          "start": "2022-07-14",
+          "start": "2022-09-09",
           "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "1e7078fc-1429-4ca9-b44b-acced5f927a8",
+        "id": "165e7ae4-c43b-4ab7-a2d7-291256baf170",
+        "name": "WagumiDAO リーダーとして活動",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "WagumiDAOのリーダーを務めました。",
+        "date": {
+          "start": "2022-07-01",
+          "end": "2022-12-31",
+          "time_zone": null
+        }
+      },
+      {
+        "id": "b83bbea0-5c7d-4932-b3e7-870ccf29213e",
         "name": "WagumiDAO Adminとして活動",
         "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
         "description": "Adminとして活動しました。",
@@ -41,13 +52,13 @@
         }
       },
       {
-        "id": "1f091f56-aa4a-4d55-8498-8d28a3e63938",
-        "name": "WG-TOKEN に参加",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-        "description": "地獄のような作業をおこなってくれました。",
+        "id": "772bccfb-9c9c-4b51-8c09-eaa8e0657f95",
+        "name": "WagumiDAO Adminとして活動",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "Adminとして活動しました。",
         "date": {
-          "start": "2022-07-01",
-          "end": "2022-09-30",
+          "start": "2022-04-01",
+          "end": "2022-06-30",
           "time_zone": null
         }
       }

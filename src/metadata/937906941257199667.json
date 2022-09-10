@@ -2,74 +2,41 @@
   "name": "ikisuke",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=937906941257199667",
-  "external_url": "https://wagumi-sbt.notion.site/574d5765c92b4aa1a12d52f78f651c58",
+  "external_url": "https://wagumi-sbt.notion.site/4bda005ec17e4af0aa51850ff5f0763e",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "id": "0eb35f27-1646-44b9-af8b-2abfaf169771",
-        "name": "TEST",
-        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-        "description": "test for updating\naaaaaaaaasdfadfaeaafa\nFAeffafafafaf\n\nfafefaefagaaqgagefaこんにちは",
+        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+        "name": "和組東京オフ会に参加",
+        "image": "FcL8476aIAAulJe.jpg",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
         "date": {
-          "start": "2022-08-17",
+          "start": "2022-09-09",
           "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "9eade0d7-bdc0-4108-b422-ca5040f29098",
-        "name": "VC Meeting",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-        "description": "第4回定例ミーティングに参加しました。",
-        "date": {
-          "start": "2022-07-17",
-          "end": null,
-          "time_zone": null
-        }
-      },
-      {
-        "id": "8b317a24-dae1-4236-83e1-12b8a9e14f44",
-        "name": "TeamCommunity定例ミーティングに参加",
-        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
-        "description": "Team Communityの定例ミーティングに参加しました。",
-        "date": {
-          "start": "2022-07-15",
-          "end": null,
-          "time_zone": null
-        }
-      },
-      {
-        "id": "a533cbd0-bff8-495b-83a1-53ba39ad32bc",
-        "name": "IVS那覇報告会に参加",
+        "id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
+        "name": "IVS那覇に参加",
         "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇報告会に参加しました。",
+        "description": "IVS那覇に参加しました。",
         "date": {
-          "start": "2022-07-14",
-          "end": null,
+          "start": "2022-07-06",
+          "end": "2022-07-08",
           "time_zone": null
         }
       },
       {
-        "id": "40c610fb-e455-4562-8e84-cde31b81809c",
-        "name": "BGIN DTWG CALLに乗り込みました",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/df619469-12fd-4581-a2d7-dd9350ddc543/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220713%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220713T141627Z&X-Amz-Expires=86400&X-Amz-Signature=9ef04113298e6cd67a3ef2512dbacde3775f6304c9519d9af84b174d4fa8250c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-        "description": "リスニングオンリーで美女が話すのを楽しみました。",
+        "id": "9687b7b9-584b-4223-b873-966d4d317161",
+        "name": "5000人記念イベント 開催に尽力",
+        "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
+        "description": "がんばりました。",
         "date": {
-          "start": "2022-07-13",
-          "end": null,
-          "time_zone": null
-        }
-      },
-      {
-        "id": "5fbbe604-caf9-434e-a98f-3d662dc136e9",
-        "name": "VC Meeting",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-        "description": "WG資料等の作成に関する打ち合わせを行いました。",
-        "date": {
-          "start": "2022-07-10",
-          "end": null,
+          "start": "2022-04-01",
+          "end": "2022-04-30",
           "time_zone": null
         }
       }
