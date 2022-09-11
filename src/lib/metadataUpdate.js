@@ -8,37 +8,50 @@ const { Client } = require('@notionhq/client');
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require('./makeLog');
 
+//本番環境
 const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
+
+//test環境
+// const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN});
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
 //usersの比較
 const compareUsers = async (contribution) => {
+    let userIds = { 
+        forDelete: [],
+        forAdd: []
+    }
     const dataForComparingUsersJson = JSON.parse(fs.readFileSync(`src/metadata.json`));
     const targetPage = dataForComparingUsersJson.find((result) => result.id === contribution.id);
     if(!targetPage) {
         for(const userId of contribution.users) {
-            await patchUserMetadata(contribution, userId);  
+            await addContribution(contribution, userId);  
         };
-        return [];
+        return userIds;
     } 
-    const comparedUsers = targetPage.users.filter(result => contribution.users.indexOf(result) === -1 );
-    return comparedUsers;
+    userIds.forDelete = targetPage.users.filter(result => contribution.users.indexOf(result) === -1 );
+    userIds.forAdd = contribution.users.filter(result => targetPage.users.indexOf(result) === -1);
+    // console.log(userIds);
+    return userIds;
 }
 
 //新しいページが追加されたときに追加処理をかける
-const patchUserMetadata = async(contribution, userId) => {
+const addContribution = async(userId, contribution) => {
+    // console.log('add contribution');
     if(!fs.existsSync(metadataDirectoryPath + `${userId}.json`)) {
-        //ファイルが存在していないときには新規作成すべきだが、createUserMetadataにて新規作成処理を施している。
-        //しかし、あまり良い書き方とは言えないので、こちらの方から誘導したほうがいいかもしれない。
-        //いやでも、ここからさらに新しい関数に飛ばすとなると開発者としても関数がネストのようになってしまうため運用保守がしづらいかもしれない。
-        //やっぱりこのままに一応しておく
-        return
+        // console.log('create user metadata')
+        await createUserMetadata(userId);
     }
     const deletedUsersPropertiesContribution = Object.assign({}, contribution);
     delete deletedUsersPropertiesContribution.users;
+    delete deletedUsersPropertiesContribution.last_edited_time;
+
     const dataForComparingUsersJson = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
-    dataForComparingUsersJson.properties.contributions.unshift(deletedUsersPropertiesContribution);
+    const forAddDataIndex = dataForComparingUsersJson.properties.contributions.findIndex((result) => {
+        Number(contribution.date.start.replaceAll("-", "")) > Number(result.date.start.replaceAll("-", ""));
+    })
+    dataForComparingUsersJson.properties.contributions.splice(forAddDataIndex, 0, contribution);
     const json = JSON.stringify(dataForComparingUsersJson, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
 }
@@ -48,22 +61,25 @@ const patchUserMetadata = async(contribution, userId) => {
 const deleteContribution = async(userId, pageId) => {
     const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
     const comparedUserData = JSON.parse(comparedUserFile);
-    console.log(comparedUserData);
     const contributionIndex = comparedUserData.properties.contributions.findIndex((result) => result.id === pageId);
-    comparedUserData.contributions.splice(contributionIndex, 1);
+    comparedUserData.properties.contributions.splice(contributionIndex, 1);
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
 }
 
 const updateContribution = async(userId, contribution) => {
-    console.log('update contribution');
+    // console.log('update contribution');
     const deletedUsersPropertiesContribution = Object.assign({}, contribution);
     delete deletedUsersPropertiesContribution.users;
-    const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
-    const comparedUserData = JSON.parse(comparedUserFile);
-    const contributionIndex = comparedUserData.properties.contributions.findIndex((result) => result.id === deletedUsersPropertiesContribution.id);
-    comparedUserData.properties.contributions.splice(contributionIndex, 1);
-    comparedUserData.properties.contributions.unshift(deletedUsersPropertiesContribution);
+    delete deletedUsersPropertiesContribution.last_edited_time;
+
+    const comparedUserData = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
+    const filterContributions = comparedUserData.properties.contributions.filter(result => contribution.id !== result.id);
+    const forUpdateDataIndex = filterContributions.findIndex(result => 
+        Number(contribution.date.start.replaceAll("-", "")) > Number(result.date.start.replaceAll("-", ""))
+    );
+    filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
+    comparedUserData.properties.contributions = filterContributions;
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`,json)
 }
@@ -83,18 +99,21 @@ const updateContributionPage = async () => {
 
     try{
         executionData = makeExecutionData(executionMessage);
-        const newUserIds = [];
         const metadataFile = fs.readFileSync('src/metadata.json');
         let metadataJson = JSON.parse(metadataFile);
 
         const lastExecutionTime = logFile[0].time;
-            const request = { 
+            const request = {
+                //本番
                 database_id: process.env.WAGUMI_DATABASE_ID,
+
+                //test版
+                // database_id: process.env.WAGUMI_TEST_DB_ID,
                 //古いものから順番に追加していくので、updateの場合は昇順
                 sorts: [
                     {
-                        property: 'last_edited_time',
-                        direction: 'ascending',
+                        property: 'date',
+                        direction: 'descending',
                     },
                 ],
                 filter: {
@@ -137,50 +156,94 @@ const updateContributionPage = async () => {
                 };
 
                 contribution.id = page.id;
-                contribution.last_edited_time = page.last_edited_time
+                const targetPage = metadataJson.find((result) => result.id === contribution.id);
+                //contributionの変更と追加で分ける
+                if(targetPage) {
+                    // console.log('patch')
+                    targetPage.last_edited_time = page.last_edited_time
         
-                tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
-                contribution.name = tmp.results[0].title.plain_text;
-        
-                tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id});
-                contribution.image = tmp.files[0].name;
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
+                    targetPage.name = tmp.results[0].title.plain_text;
+            
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id});
+                    if(tmp.files[0].file) {
+                        targetPage.image = tmp.files[0].file.url;
+                    } else {
+                        targetPage.image = tmp.files[0].external.url;
+                    }
 
-                tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id});
-                contribution.description = tmp.results[0].rich_text.plain_text;
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id});
+                    targetPage.description = tmp.results[0].rich_text.plain_text;
+            
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
+                    targetPage.date = tmp.date                        
+                    
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
+                    targetPage.users = tmp.results.map((user) =>{
+                        let userId = user.rich_text.plain_text;
+                    return userId;
+                    });
+                    const filterContributions = metadataJson.filter(result => targetPage.id !== result.id);
+                    const changeContributionIndex = filterContributions.findIndex(result => 
+                        Number(result.date.start.replaceAll("-", "")) < Number(targetPage.date.start.replaceAll("-", ""))
+                    );
+                    filterContributions.splice(changeContributionIndex, 0, targetPage);
+                    metadataJson = filterContributions;
+                    contribution = targetPage;
+                } else {
+                    // console.log('add');
+                    contribution.last_edited_time = page.last_edited_time
         
-                tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
-                contribution.date = tmp.date                        
-                
-                tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
-                contribution.users = tmp.results.map((user) =>{
-                    let userId = user.rich_text.plain_text;
-                return userId;
-                });
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
+                    contribution.name = tmp.results[0].title.plain_text;
+            
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id});
+                    if(tmp.files[0].file) {
+                        contribution.image = tmp.files[0].file.url;
+                    } else {
+                        contribution.image = tmp.files[0].external.url;
+                    }
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id});
+                    contribution.description = tmp.results[0].rich_text.plain_text;
+            
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
+                    contribution.date = tmp.date                        
+                    
+                    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
+                    contribution.users = tmp.results.map((user) =>{
+                        let userId = user.rich_text.plain_text;
+                    return userId;
+                    });
+                    const addContributionIndex = metadataJson.findIndex(result => 
+                        Number(result.date.start.replaceAll("-", "")) < Number(contribution.date.start.replaceAll("-", ""))
+                    );
+                    // console.log(addContributionIndex);
+                    metadataJson.splice(addContributionIndex, 0, contribution);
+                }
+
+                // console.log(contribution);
 
                 const comparedUsers = await compareUsers(contribution);
-                for(const comparedUser of comparedUsers) {
-                    deleteContribution(comparedUser, contribution.id);
+                for(const deleteUserId of comparedUsers.forDelete) {
+                    deleteContribution(deleteUserId, contribution.id);
+                }
+
+                for(const addUserId of comparedUsers.forAdd) {
+                    addContribution(addUserId, contribution);
                 }
 
                 for(userId of contribution.users) {
-                    if(!userSearch(userId)) {
-                        newUserIds.push(userId);
-                    } else {
+                    if(userSearch(userId)) {
                         await updateContribution(userId, contribution);
                     }
                 }
 
-                const filterMetadata = metadataJson.filter(result => page.id != result.id);
-                filterMetadata.unshift(contribution);
-                metadataJson = filterMetadata;
+
             }
         const jsonData = JSON.stringify(metadataJson,null,2);
         fs.writeFileSync("src/metadata.json", jsonData);
         fs.writeFileSync("src/executionData.json", executionData);
 
-        for(const newUserId of newUserIds) {
-            await createUserMetadata(newUserId, lastExecutionTime);
-        }    
 	} catch(error) {
 		console.error(error);
 	}
@@ -188,25 +251,7 @@ const updateContributionPage = async () => {
 
 
 
-const createUserMetadata = async(userId, lastExecutionTime) => {
-    const lastExecutionUnix = new Date(lastExecutionTime);
-    const metadataJson = JSON.parse(fs.readFileSync('src/metadata.json'));
-
-    const contributions = [];
-
-    for(const contribution of metadataJson) {
-        const forComparingUnix = new Date(contribution.last_edited_time);
-        if(
-            forComparingUnix > lastExecutionUnix && 
-            contribution.users.includes(userId)
-        ) {
-            const deletedUsersPropertiesContribution = Object.assign({}, contribution);
-            delete deletedUsersPropertiesContribution.users;
-            contributions.push(deletedUsersPropertiesContribution);
-        } else if(lastExecutionUnix > forComparingUnix) {
-            break
-        }
-    }
+const createUserMetadata = async(userId) => {
 
     const metadataFilePath =  `${metadataDirectoryPath}${userId}.json`;
 
@@ -218,12 +263,15 @@ const createUserMetadata = async(userId, lastExecutionTime) => {
         properties: {
             toknes: [],
             sns: {},
-            contributions: contributions
+            contributions: []
         },
 	};
 
     const request = { 
+        //本番
 		database_id: process.env.WAGUMI_USER_DATABASE_ID,
+        //test版
+        // database_id: process.env.WAGUMI_TEST_USER_ID,
 		filter: {
 				property: 'id',
 				rich_text: {
@@ -259,4 +307,3 @@ const update = async() => {
 }
 
 exports.update = update;
-

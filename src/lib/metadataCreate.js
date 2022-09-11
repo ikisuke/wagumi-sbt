@@ -9,7 +9,11 @@ const { Client } = require('@notionhq/client');
 // alchemy sdkをimport
 // const { Network, Alchemy } = require('alchemy-sdk');
 
+//本番環境
 const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
+
+//test環境用
+// const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN });
 
 let contribution = {
 	id: '',
@@ -73,7 +77,10 @@ const getUserData = async (userId) => {
   };
 
   const request = {
+    //本番用
     database_id: process.env.WAGUMI_USER_DATABASE_ID,
+    //test環境用
+    // database_id: process.env.WAGUMI_TEST_USER_ID,
     filter: {
       property: 'id',
       rich_text: {
@@ -114,6 +121,7 @@ const getUserData = async (userId) => {
     if (contribution.users.includes(userId)) {
 		const userContribution = contribution;
 		delete userContribution.users;
+    delete userContribution.last_edited_time;
       metadataStruct.properties.contributions.push(userContribution);
     }
   }
@@ -205,7 +213,10 @@ const createMetadata = async () => {
         executionData = makeExecutionData(executionMessage);
 
 		const request = { 
+      //本番環境
 			database_id: process.env.WAGUMI_DATABASE_ID,
+      //test環境
+      // database_id: process.env.WAGUMI_TEST_DB_ID,
 			filter: {
 				property: 'publish',
 				checkbox: {
@@ -214,7 +225,7 @@ const createMetadata = async () => {
 			},
 			sorts: [
 				{
-					property: 'last_edited_time',
+					property: 'date',
 					direction: 'descending',
 				},
 			],
@@ -255,8 +266,12 @@ const pushContributionPage = async (pages) => {
 				metadataContribution.name = tmp.results[0].title.plain_text;
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id});
-				metadataContribution.image = tmp.files[0].name;
-	
+                  if(tmp.files[0].file) {
+                      metadataContribution.image = tmp.files[0].file.url;
+                  } else {
+                    metadataContribution.image = tmp.files[0].external.url;
+                  }
+    
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id});
 				metadataContribution.description = tmp.results[0].rich_text.plain_text;
 		
@@ -269,7 +284,7 @@ const pushContributionPage = async (pages) => {
 					return userId;
 				});
 				contributions.push(metadataContribution);
-				// console.log(contribution)
+				console.log(metadataContribution)
 	}
   const jsonData = JSON.stringify(contributions, null, 2);
   fs.writeFileSync('src/metadata.json', jsonData);

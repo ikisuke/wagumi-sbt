@@ -1,0 +1,23 @@
+{
+  "name": "Jun",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=989535807083794432",
+  "external_url": "https://wagumi-sbt.notion.site/e70fc395ed4b49c0a16ab0ed4db9b32c",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
+        "name": "Wagumi SBTを発行",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/02ea6319-f65d-44d8-a45d-c82afb9ce1f2/6df1bc1186205078af668045961f0a67.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021123Z&X-Amz-Expires=3600&X-Amz-Signature=ed343184dc5dee11a1732663a9c415f8186cb6fa8968235e0ef9088a09850685&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "Wagumi SBTを申請し、発行されました。",
+        "date": {
+          "start": "2022-09-09",
+          "end": null,
+          "time_zone": null
+        }
+      }
+    ]
+  }
+}

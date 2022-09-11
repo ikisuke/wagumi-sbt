@@ -1,0 +1,23 @@
+{
+  "name": "たつぞう",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=390450654000316438",
+  "external_url": "https://wagumi-sbt.notion.site/07a28e1567cc4f3799d927a369444a3f",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "id": "9687b7b9-584b-4223-b873-966d4d317161",
+        "name": "5000人記念イベント 開催に尽力",
+        "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
+        "description": "がんばりました。",
+        "date": {
+          "start": "2022-04-01",
+          "end": "2022-04-30",
+          "time_zone": null
+        }
+      }
+    ]
+  }
+}

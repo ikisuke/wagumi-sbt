@@ -8,25 +8,23 @@
     "sns": {},
     "contributions": [
       {
-        "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
-        "last_edited_time": "2022-09-08T23:59:00.000Z",
-        "name": "WG-TOKEN に参加",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-        "description": "地獄のような作業をおこなってくれました。",
+        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
+        "name": "Wagumi SBTを発行",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/02ea6319-f65d-44d8-a45d-c82afb9ce1f2/6df1bc1186205078af668045961f0a67.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021123Z&X-Amz-Expires=3600&X-Amz-Signature=ed343184dc5dee11a1732663a9c415f8186cb6fa8968235e0ef9088a09850685&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "Wagumi SBTを申請し、発行されました。",
         "date": {
-          "start": "2022-07-01",
-          "end": "2022-09-30",
+          "start": "2022-09-09",
+          "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "0c910b0c-a8d4-4478-8662-dba62da8b6be",
-        "last_edited_time": "2022-08-28T17:09:00.000Z",
-        "name": "VC Meeting",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220710%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220710T053524Z&X-Amz-Expires=86400&X-Amz-Signature=4d2243e4c635ff0126544bdd37e11cfe1bb33fb18967f351055c1366eb74601a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F4d09e9cc-0595-4e3b-bcff-66fd69dfe467%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220706%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220706T051403Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject",
-        "description": "第4回定例ミーティングに参加しました。",
+        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+        "name": "和組東京オフ会に参加",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d3c8511d-ac27-41a9-bdcd-52345afa69b2/FcL8476aIAAulJe.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021125Z&X-Amz-Expires=3600&X-Amz-Signature=c821313ef3163b2bb59fc2f0fac8e9c848548f1d5ae74591da1f7600e2b58490&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
         "date": {
-          "start": "2022-07-17",
+          "start": "2022-09-09",
           "end": null,
           "time_zone": null
         }

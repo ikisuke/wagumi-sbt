@@ -1,0 +1,34 @@
+{
+  "name": "Yusuket",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=779789414880510002",
+  "external_url": "https://wagumi-sbt.notion.site/e2e3452008c7436ab14f334871452235",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
+        "name": "IVS那覇に参加",
+        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
+        "description": "IVS那覇に参加しました。",
+        "date": {
+          "start": "2022-07-06",
+          "end": "2022-07-08",
+          "time_zone": null
+        }
+      },
+      {
+        "id": "772bccfb-9c9c-4b51-8c09-eaa8e0657f95",
+        "name": "WagumiDAO Adminとして活動",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "Adminとして活動しました。",
+        "date": {
+          "start": "2022-04-01",
+          "end": "2022-06-30",
+          "time_zone": null
+        }
+      }
+    ]
+  }
+}

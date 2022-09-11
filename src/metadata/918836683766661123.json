@@ -8,26 +8,35 @@
     "sns": {},
     "contributions": [
       {
-        "id": "d64a50f4-f273-4084-a2dd-3d7720725946",
-        "last_edited_time": "2022-09-08T23:59:00.000Z",
-        "name": "WG-TOKEN に参加",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220706%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220706T051403Z&X-Amz-Expires=86400&X-Amz-Signature=2de08251586942afb6616ee76c42416220a9fb57a2e3750cc42d537f6dcf4fce&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject",
-        "description": "地獄のような作業をおこなってくれました。",
+        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
+        "name": "Wagumi SBTを発行",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/02ea6319-f65d-44d8-a45d-c82afb9ce1f2/6df1bc1186205078af668045961f0a67.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021123Z&X-Amz-Expires=3600&X-Amz-Signature=ed343184dc5dee11a1732663a9c415f8186cb6fa8968235e0ef9088a09850685&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "Wagumi SBTを申請し、発行されました。",
         "date": {
-          "start": "2022-07-01",
-          "end": "2022-09-30",
+          "start": "2022-09-09",
+          "end": null,
           "time_zone": null
         }
       },
       {
-        "id": "b2bd1021-49c8-42ae-b5bc-8113f4d01c8a",
-        "last_edited_time": "2022-08-28T17:28:00.000Z",
-        "name": "IVS那覇報告会に参加",
-        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇報告会に参加しました。",
+        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+        "name": "和組東京オフ会に参加",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d3c8511d-ac27-41a9-bdcd-52345afa69b2/FcL8476aIAAulJe.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021125Z&X-Amz-Expires=3600&X-Amz-Signature=c821313ef3163b2bb59fc2f0fac8e9c848548f1d5ae74591da1f7600e2b58490&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
         "date": {
-          "start": "2022-07-14",
+          "start": "2022-09-09",
           "end": null,
+          "time_zone": null
+        }
+      },
+      {
+        "id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
+        "name": "IVS那覇に参加",
+        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
+        "description": "IVS那覇に参加しました。",
+        "date": {
+          "start": "2022-07-06",
+          "end": "2022-07-08",
           "time_zone": null
         }
       }
