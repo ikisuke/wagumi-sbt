@@ -266,8 +266,12 @@ const pushContributionPage = async (pages) => {
 				metadataContribution.name = tmp.results[0].title.plain_text;
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id});
-				metadataContribution.image = tmp.files[0].name;
-	
+                  if(tmp.files[0].file) {
+                      metadataContribution.image = tmp.files[0].file.url;
+                  } else {
+                    metadataContribution.image = tmp.files[0].external.url;
+                  }
+    
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id});
 				metadataContribution.description = tmp.results[0].rich_text.plain_text;
 		
