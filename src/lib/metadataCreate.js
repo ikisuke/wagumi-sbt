@@ -16,11 +16,14 @@ const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 // const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN });
 
 let contribution = {
-	id: '',
 	last_edited_time: '',
 	name: '',
 	image: '',
 	description: '',
+  properties: {
+    page_id: '',
+    reference: []
+  },
 	date: '',
 	users: [],
 };
@@ -127,7 +130,7 @@ const getUserData = async (userId) => {
   }
 
   const json = JSON.stringify(metadataStruct, null, 2);
-  fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
+  fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 	} catch(error) {
 		console.error('create user data failed', error);
 	}
@@ -245,7 +248,7 @@ const createMetadata = async () => {
     for (let userId of userIds) {
       await getUserData(userId);
     }
-    fs.writeFileSync('src/executionData.json', executionData);
+    fs.writeFileSync('src/executionData.json', executionData + '\n');
   } catch (error) {
     console.error('create metadata failed',error);
   }
@@ -259,7 +262,7 @@ const pushContributionPage = async (pages) => {
 			//contributeにデータを追加するためのトリガー。falseの場合データ追加をしない。(計算数を減らす目的)
 	
 				
-				metadataContribution.id = page.id;
+				metadataContribution.properties.page_id = page.id;
 				metadataContribution.last_edited_time = page.last_edited_time
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
@@ -277,6 +280,7 @@ const pushContributionPage = async (pages) => {
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
 				metadataContribution.date = tmp.date;
+        delete metadataContribution.date.time_zone;
 	
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
 				metadataContribution.users = tmp.results.map((user) =>{
@@ -287,7 +291,7 @@ const pushContributionPage = async (pages) => {
 				console.log(metadataContribution)
 	}
   const jsonData = JSON.stringify(contributions, null, 2);
-  fs.writeFileSync('src/metadata.json', jsonData);
+  fs.writeFileSync('src/metadata.json', jsonData + '\n');
   // json形式に変換して、ファイル作成
   // コマンドラインの第一引数(discordのユーザーID)をファイル名にする
 };
