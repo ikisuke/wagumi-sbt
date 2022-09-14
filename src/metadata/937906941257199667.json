@@ -1,0 +1,51 @@
+{
+  "name": "ikisuke",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=937906941257199667",
+  "external_url": "https://wagumi-sbt.notion.site/4bda005ec17e4af0aa51850ff5f0763e",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "name": "和組東京オフ会に参加",
+        "image": "https://cdn.discordapp.com/attachments/994575868007555112/1019103681297268817/unknown.png",
+        "description": "和組として国内単独開催初となるオフ会に参加しました。",
+        "properties": {
+          "page_id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
+          "reference": []
+        },
+        "date": {
+          "start": "2022-09-09",
+          "end": ""
+        }
+      },
+      {
+        "name": "IVS那覇に参加",
+        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
+        "description": "IVS那覇に参加しました。",
+        "properties": {
+          "page_id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
+          "reference": []
+        },
+        "date": {
+          "start": "2022-07-06",
+          "end": "2022-07-08"
+        }
+      },
+      {
+        "name": "5000人記念イベント 開催に尽力",
+        "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
+        "description": "がんばりました。",
+        "properties": {
+          "page_id": "9687b7b9-584b-4223-b873-966d4d317161",
+          "reference": []
+        },
+        "date": {
+          "start": "2022-04-01",
+          "end": "2022-04-30"
+        }
+      }
+    ]
+  }
+}

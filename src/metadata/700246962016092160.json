@@ -1,0 +1,25 @@
+{
+  "name": "George",
+  "description": "He/She is one of wagumi members.",
+  "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=700246962016092160",
+  "external_url": "https://wagumi-sbt.notion.site/eb0391572f5345d6aac6aa149452682c",
+  "properties": {
+    "toknes": [],
+    "sns": {},
+    "contributions": [
+      {
+        "name": "5000人記念イベント 開催に尽力",
+        "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
+        "description": "がんばりました。",
+        "properties": {
+          "page_id": "9687b7b9-584b-4223-b873-966d4d317161",
+          "reference": []
+        },
+        "date": {
+          "start": "2022-04-01",
+          "end": "2022-04-30"
+        }
+      }
+    ]
+  }
+}

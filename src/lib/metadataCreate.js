@@ -284,6 +284,9 @@ const pushContributionPage = async (pages) => {
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
 				contribution.date.start = tmp.date.start;
         contribution.date.end = tmp.date.end;
+        if(!contribution.date.end) {
+          contribution.date.end = "";
+        }
 	
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
 				contribution.users = tmp.results.map((user) =>{
