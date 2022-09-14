@@ -2,48 +2,35 @@
   "name": "keiji",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=918836683766661123",
-  "external_url": "https://wagumi-sbt.notion.site/c78f462e41a84d05afe6d2aad5b81f5f",
+  "external_url": "https://wagumi-sbt.notion.site/f84b9706504840848947d102e2fc7fa8",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "name": "Wagumi SBTを発行",
-        "image": "https://openseauserdata.com/files/6df1bc1186205078af668045961f0a67.jpg",
-        "description": "Wagumi SBTを申請し、発行されました。",
-        "properties": {
-          "page_id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
-          "reference": []
-        },
-        "date": {
-          "start": "2022-09-09",
-          "end": ""
-        }
-      },
-      {
-        "name": "和組東京オフ会に参加",
-        "image": "https://cdn.discordapp.com/attachments/994575868007555112/1019103681297268817/unknown.png",
-        "description": "和組として国内単独開催初となるオフ会に参加しました。",
-        "properties": {
-          "page_id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
-          "reference": []
-        },
-        "date": {
-          "start": "2022-09-09",
-          "end": ""
-        }
-      },
-      {
-        "name": "IVS那覇に参加",
+        "name": "IVS那覇報告会に参加",
         "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇に参加しました。",
+        "description": "IVS那覇報告会に参加しました。",
         "properties": {
-          "page_id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
+          "page_id": "a533cbd0-bff8-495b-83a1-53ba39ad32bc",
           "reference": []
         },
         "date": {
-          "start": "2022-07-06",
-          "end": "2022-07-08"
+          "start": "2022-07-14",
+          "end": ""
+        }
+      },
+      {
+        "name": "WG-TOKEN に参加",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T065218Z&X-Amz-Expires=3600&X-Amz-Signature=58a82ed7800878562ee0337e4ebafb35d99c5b9c1345a264b8f191179a6f35bc&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "地獄のような作業をおこなってくれました。",
+        "properties": {
+          "page_id": "1f091f56-aa4a-4d55-8498-8d28a3e63938",
+          "reference": []
+        },
+        "date": {
+          "start": "2022-07-01",
+          "end": "2022-09-30"
         }
       }
     ]

@@ -2,48 +2,22 @@
   "name": "kiyo",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=125422627715022848",
-  "external_url": "https://wagumi-sbt.notion.site/0c91b45d0ddf439396f94be813d20aa7",
+  "external_url": "https://wagumi-sbt.notion.site/5b99da260b924e7098e13d1bb796c728",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "name": "Wagumi SBTを発行",
-        "image": "https://openseauserdata.com/files/6df1bc1186205078af668045961f0a67.jpg",
-        "description": "Wagumi SBTを申請し、発行されました。",
-        "properties": {
-          "page_id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
-          "reference": []
-        },
-        "date": {
-          "start": "2022-09-09",
-          "end": ""
-        }
-      },
-      {
         "name": "IVS那覇で登壇",
         "image": "https://media.discordapp.net/attachments/981208746103537744/994869469476298823/IMG_0444.jpg?width=331&height=442",
         "description": "IVS那覇でセッションに登壇しました。",
         "properties": {
-          "page_id": "03735aea-889f-4b04-9417-04efca3ce8a6",
+          "page_id": "1e888fc9-5871-41ab-9b22-4b9fb8906e70",
           "reference": []
         },
         "date": {
           "start": "2022-07-08",
           "end": ""
-        }
-      },
-      {
-        "name": "IVS那覇に参加",
-        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇に参加しました。",
-        "properties": {
-          "page_id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
-          "reference": []
-        },
-        "date": {
-          "start": "2022-07-06",
-          "end": "2022-07-08"
         }
       }
     ]
