@@ -23,10 +23,10 @@ const compareUsers = async (contribution) => {
         forAdd: []
     }
     const dataForComparingUsersJson = JSON.parse(fs.readFileSync(`src/metadata.json`));
-    const targetPage = dataForComparingUsersJson.find((result) => result.id === contribution.id);
+    const targetPage = dataForComparingUsersJson.find((result) => result.properties.page_id === contribution.properties.page_id);
     if(!targetPage) {
         for(const userId of contribution.users) {
-            await addContribution(contribution, userId);  
+            await addContribution(userId, contribution);  
         };
         return userIds;
     } 
@@ -47,13 +47,14 @@ const addContribution = async(userId, contribution) => {
     delete deletedUsersPropertiesContribution.users;
     delete deletedUsersPropertiesContribution.last_edited_time;
 
+
     const dataForComparingUsersJson = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
     const forAddDataIndex = dataForComparingUsersJson.properties.contributions.findIndex((result) => {
         Number(contribution.date.start.replaceAll("-", "")) > Number(result.date.start.replaceAll("-", ""));
     })
-    dataForComparingUsersJson.properties.contributions.splice(forAddDataIndex, 0, contribution);
+    dataForComparingUsersJson.properties.contributions.splice(forAddDataIndex, 0, deletedUsersPropertiesContribution);
     const json = JSON.stringify(dataForComparingUsersJson, null, 2);
-    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
+    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + `\n`);
 }
 
 
@@ -61,10 +62,10 @@ const addContribution = async(userId, contribution) => {
 const deleteContribution = async(userId, pageId) => {
     const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
     const comparedUserData = JSON.parse(comparedUserFile);
-    const contributionIndex = comparedUserData.properties.contributions.findIndex((result) => result.id === pageId);
+    const contributionIndex = comparedUserData.properties.contributions.findIndex((result) => result.properties.page_id === pageId);
     comparedUserData.properties.contributions.splice(contributionIndex, 1);
     const json = JSON.stringify(comparedUserData, null, 2);
-    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json);
+    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 }
 
 const updateContribution = async(userId, contribution) => {
@@ -74,14 +75,14 @@ const updateContribution = async(userId, contribution) => {
     delete deletedUsersPropertiesContribution.last_edited_time;
 
     const comparedUserData = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
-    const filterContributions = comparedUserData.properties.contributions.filter(result => contribution.id !== result.id);
+    const filterContributions = comparedUserData.properties.contributions.filter(result => contribution.properties.page_id !== result.properties.page_id);
     const forUpdateDataIndex = filterContributions.findIndex(result => 
         Number(contribution.date.start.replaceAll("-", "")) > Number(result.date.start.replaceAll("-", ""))
     );
     filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
     comparedUserData.properties.contributions = filterContributions;
     const json = JSON.stringify(comparedUserData, null, 2);
-    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`,json)
+    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`,json + '\n');
 }
 
 const userSearch = (userId) => {
@@ -146,17 +147,23 @@ const updateContributionPage = async () => {
                 let tmp;
 
                 let contribution = {
-                    id: "",
                     last_edited_time: "",
                     name: "",
                     image: "",
                     description: "",
-                    date: "",
+                    properties: {
+                        page_id: "",
+                        reference: []
+                    },
+                    date: {
+                        start: "",
+                        end: ""
+                    },
                     users: []
                 };
 
-                contribution.id = page.id;
-                const targetPage = metadataJson.find((result) => result.id === contribution.id);
+                contribution.properties.page_id = page.id;
+                const targetPage = metadataJson.find((result) => result.properties.page_id === contribution.properties.page_id);
                 //contributionの変更と追加で分ける
                 if(targetPage) {
                     // console.log('patch')
@@ -176,14 +183,15 @@ const updateContributionPage = async () => {
                     targetPage.description = tmp.results[0].rich_text.plain_text;
             
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
-                    targetPage.date = tmp.date                        
+                    targetPage.date.start = tmp.date.start;
+                    targetPage.date.end = tmp.date.end; 
                     
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
                     targetPage.users = tmp.results.map((user) =>{
                         let userId = user.rich_text.plain_text;
                     return userId;
                     });
-                    const filterContributions = metadataJson.filter(result => targetPage.id !== result.id);
+                    const filterContributions = metadataJson.filter(result => targetPage.properties.page_id !== result.id);
                     const changeContributionIndex = filterContributions.findIndex(result => 
                         Number(result.date.start.replaceAll("-", "")) < Number(targetPage.date.start.replaceAll("-", ""))
                     );
@@ -207,7 +215,8 @@ const updateContributionPage = async () => {
                     contribution.description = tmp.results[0].rich_text.plain_text;
             
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
-                    contribution.date = tmp.date                        
+                    contribution.date.start = tmp.date.start;
+                    contribution.date.end = tmp.date.end;
                     
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
                     contribution.users = tmp.results.map((user) =>{
@@ -225,7 +234,7 @@ const updateContributionPage = async () => {
 
                 const comparedUsers = await compareUsers(contribution);
                 for(const deleteUserId of comparedUsers.forDelete) {
-                    deleteContribution(deleteUserId, contribution.id);
+                    deleteContribution(deleteUserId, contribution.properties.page_id);
                 }
 
                 for(const addUserId of comparedUsers.forAdd) {
@@ -241,8 +250,8 @@ const updateContributionPage = async () => {
 
             }
         const jsonData = JSON.stringify(metadataJson,null,2);
-        fs.writeFileSync("src/metadata.json", jsonData);
-        fs.writeFileSync("src/executionData.json", executionData);
+        fs.writeFileSync("src/metadata.json", jsonData + '\n');
+        fs.writeFileSync("src/executionData.json", executionData + '\n');
 
 	} catch(error) {
 		console.error(error);
@@ -280,6 +289,7 @@ const createUserMetadata = async(userId) => {
 		},
 	};
 
+
     const response = await client.databases.query(request);
 
     const page = response.results[0];
@@ -298,7 +308,7 @@ const createUserMetadata = async(userId) => {
     metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
     const json = JSON.stringify(metadataStruct, null, 2);
-	fs.writeFileSync(metadataFilePath, json);
+	fs.writeFileSync(metadataFilePath, json + '\n');
 }
 
 

@@ -2,42 +2,35 @@
   "name": "jasagiri",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=402820738568028160",
-  "external_url": "https://wagumi-sbt.notion.site/25f8fdf55d7d4f6fac4ded72047a32d8",
+  "external_url": "https://wagumi-sbt.notion.site/6667dbd9d7fb40d7b3f1403cb57bab7e",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
-        "name": "Wagumi SBTを発行",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/02ea6319-f65d-44d8-a45d-c82afb9ce1f2/6df1bc1186205078af668045961f0a67.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021123Z&X-Amz-Expires=3600&X-Amz-Signature=ed343184dc5dee11a1732663a9c415f8186cb6fa8968235e0ef9088a09850685&X-Amz-SignedHeaders=host&x-id=GetObject",
-        "description": "Wagumi SBTを申請し、発行されました。",
+        "name": "VC Meeting",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T065209Z&X-Amz-Expires=3600&X-Amz-Signature=0d57d1505fd171ea015332c1ba8708e770dfba03df03ea71d63304ca051bc127&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "第4回定例ミーティングに参加しました。",
+        "properties": {
+          "page_id": "9eade0d7-bdc0-4108-b422-ca5040f29098",
+          "reference": []
+        },
         "date": {
-          "start": "2022-09-09",
-          "end": null,
-          "time_zone": null
+          "start": "2022-07-17",
+          "end": ""
         }
       },
       {
-        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
-        "name": "和組東京オフ会に参加",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d3c8511d-ac27-41a9-bdcd-52345afa69b2/FcL8476aIAAulJe.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021125Z&X-Amz-Expires=3600&X-Amz-Signature=c821313ef3163b2bb59fc2f0fac8e9c848548f1d5ae74591da1f7600e2b58490&X-Amz-SignedHeaders=host&x-id=GetObject",
-        "description": "和組として国内単独開催初となるオフ会に参加しました。",
+        "name": "WG-TOKEN に参加",
+        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d09e9cc-0595-4e3b-bcff-66fd69dfe467/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T065218Z&X-Amz-Expires=3600&X-Amz-Signature=58a82ed7800878562ee0337e4ebafb35d99c5b9c1345a264b8f191179a6f35bc&X-Amz-SignedHeaders=host&x-id=GetObject",
+        "description": "地獄のような作業をおこなってくれました。",
+        "properties": {
+          "page_id": "1f091f56-aa4a-4d55-8498-8d28a3e63938",
+          "reference": []
+        },
         "date": {
-          "start": "2022-09-09",
-          "end": null,
-          "time_zone": null
-        }
-      },
-      {
-        "id": "a89eda4d-15a0-4161-8e98-cc7f2997c358",
-        "name": "IVS那覇に参加",
-        "image": "https://www.ivs.events/wp-content/uploads/2022/05/ivs-mv-2-1536x864.jpg",
-        "description": "IVS那覇に参加しました。",
-        "date": {
-          "start": "2022-07-06",
-          "end": "2022-07-08",
-          "time_zone": null
+          "start": "2022-07-01",
+          "end": "2022-09-30"
         }
       }
     ]

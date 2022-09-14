@@ -2,42 +2,35 @@
   "name": "muarata",
   "description": "He/She is one of wagumi members.",
   "image": "https://wagumi-sbt.ukishima.repl.co/image?userid=450293970493505536",
-  "external_url": "https://wagumi-sbt.notion.site/21d4fe5ca2d94a239115353eb23773b0",
+  "external_url": "https://wagumi-sbt.notion.site/f64dc2374ee44385aee9f550fac827df",
   "properties": {
     "toknes": [],
     "sns": {},
     "contributions": [
       {
-        "id": "82462e9c-3a16-47cd-bd19-784671cbdf05",
-        "name": "Wagumi SBTを発行",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/02ea6319-f65d-44d8-a45d-c82afb9ce1f2/6df1bc1186205078af668045961f0a67.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021123Z&X-Amz-Expires=3600&X-Amz-Signature=ed343184dc5dee11a1732663a9c415f8186cb6fa8968235e0ef9088a09850685&X-Amz-SignedHeaders=host&x-id=GetObject",
-        "description": "Wagumi SBTを申請し、発行されました。",
+        "name": "TeamCommunity定例ミーティングに参加",
+        "image": "https://pbs.twimg.com/profile_images/1465762338871644162/nYSe4c4G_400x400.jpg",
+        "description": "Team Communityの定例ミーティングに参加しました。",
+        "properties": {
+          "page_id": "8b317a24-dae1-4236-83e1-12b8a9e14f44",
+          "reference": []
+        },
         "date": {
-          "start": "2022-09-09",
-          "end": null,
-          "time_zone": null
+          "start": "2022-07-15",
+          "end": ""
         }
       },
       {
-        "id": "9572796d-acc9-4ce9-bec8-38b5e6707f0c",
-        "name": "和組東京オフ会に参加",
-        "image": "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d3c8511d-ac27-41a9-bdcd-52345afa69b2/FcL8476aIAAulJe.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T021125Z&X-Amz-Expires=3600&X-Amz-Signature=c821313ef3163b2bb59fc2f0fac8e9c848548f1d5ae74591da1f7600e2b58490&X-Amz-SignedHeaders=host&x-id=GetObject",
-        "description": "和組として国内単独開催初となるオフ会に参加しました。",
-        "date": {
-          "start": "2022-09-09",
-          "end": null,
-          "time_zone": null
-        }
-      },
-      {
-        "id": "9687b7b9-584b-4223-b873-966d4d317161",
         "name": "5000人記念イベント 開催に尽力",
         "image": "https://cdn.discordapp.com/attachments/914988919362293760/970922588064841778/unknown.png",
         "description": "がんばりました。",
+        "properties": {
+          "page_id": "39399cf8-7cc6-4635-986b-920db846e250",
+          "reference": []
+        },
         "date": {
           "start": "2022-04-01",
-          "end": "2022-04-30",
-          "time_zone": null
+          "end": "2022-04-30"
         }
       }
     ]
