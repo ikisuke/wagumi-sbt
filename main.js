@@ -12,10 +12,10 @@ const { makeExecutionData } = require('./src/lib/makeLog');
       await metadataUpdate.update();
     // } else if (firstArg == '') {
     //   metadataCreate.getTokenData();
-    } else {
+    } else if(firstArg == 'create' || !firstArg){
       await metadataCreate.createMetadata();
-      console.log('success!')
-      makeExecutionData('create metadata'); 
+    } else {
+      throw new Error('コマンドが違います')
     }
   } catch (error) {
     console.error(error.message);

@@ -6,7 +6,6 @@ const { makeExecutionData } = require('./makeLog');
 
 const { Client } = require('@notionhq/client');
 
-const { makeExecutionData } = require('./makeLog');
 
 // alchemy sdkをimport
 // const { Network, Alchemy } = require('alchemy-sdk');
