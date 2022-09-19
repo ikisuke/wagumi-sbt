@@ -108,8 +108,6 @@ const getUserData = async (userId) => {
 
 	const metadataJson = JSON.parse(fs.readFileSync('src/metadata.json', 'utf-8'));
 
-	console.log(metadataJson)
-
   for (const contribution of metadataJson) {
     if (contribution.users.includes(userId)) {
 		const userContribution = contribution;

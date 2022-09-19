@@ -4,15 +4,6 @@ const makeExecutionData = (message) => {
 
     const logFilePath = 'src/executionData.json';
 
-    fs.stat(logFilePath, (err, stat) => {
-        if (err) {
-            const initialData = [];
-            const initialDataJson = JSON.stringify(initialData, null, 2);
-            fs.writeFileSync('src/executionData.json', initialDataJson);
-            makeExecutionData(logFilePath, 'initialize');
-        }
-    })
-
 	const readFile = fs.readFileSync(logFilePath);
 	const fileData = JSON.parse(readFile);
 
@@ -34,3 +25,13 @@ const makeExecutionData = (message) => {
 }
 
 exports.makeExecutionData = makeExecutionData;
+
+const initializeExecutionData = async() => {
+		const initialData = [];
+		const initialDataJson = JSON.stringify(initialData, null, 2);
+		fs.writeFileSync('src/executionData.json', initialDataJson);
+		const executionData = makeExecutionData('initialize');
+		fs.writeFileSync('src/executionData.json', executionData);
+}
+
+exports.initializeExecutionData = initializeExecutionData;

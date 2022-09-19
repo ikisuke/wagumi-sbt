@@ -2,8 +2,6 @@ require('dotenv').config();
 
 const fs = require('fs');
 
-const logFile = require('../executionData.json');
-
 const { Client } = require('@notionhq/client');
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require('./makeLog');
@@ -103,6 +101,7 @@ const updateContributionPage = async () => {
         const metadataFile = fs.readFileSync('src/metadata.json');
         let metadataJson = JSON.parse(metadataFile);
 
+        const logFile = JSON.parse(fs.readFileSync('src/executionData.json'));
         const lastExecutionTime = logFile[0].time;
             const request = {
                 //本番

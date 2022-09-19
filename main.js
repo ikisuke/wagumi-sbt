@@ -1,13 +1,18 @@
 const [, , firstArg] = process.argv;
 
+const fs = require("fs");
+
 require('dotenv').config();
 
 const metadataUpdate = require('./src/lib/metadataUpdate');
 const metadataCreate = require('./src/lib/metadataCreate');
-const { makeExecutionData } = require('./src/lib/makeLog');
+const { makeExecutionData, initializeExecutionData } = require('./src/lib/makeLog');
 
 (async () => {
   try {
+    if(!fs.existsSync('src/executionData.json')){
+        initializeExecutionData();
+    }
     if (firstArg == 'update') {
       await metadataUpdate.update();
     // } else if (firstArg == '') {
