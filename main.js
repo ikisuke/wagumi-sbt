@@ -8,16 +8,14 @@ const { makeExecutionData } = require('./src/lib/makeLog');
 
 (async () => {
   try {
-    if (firstArg == 'create') {
-      await metadataCreate.createMetadata();
-      console.log('success!')
-      makeExecutionData('create metadata');
-    } else if (firstArg == 'update') {
-      metadataUpdate.update();
+    if (firstArg == 'update') {
+      await metadataUpdate.update();
     // } else if (firstArg == '') {
     //   metadataCreate.getTokenData();
+    } else if(firstArg == 'create' || !firstArg){
+      await metadataCreate.createMetadata();
     } else {
-      throw new Error('コマンドが違います。');
+      throw new Error('コマンドが違います')
     }
   } catch (error) {
     console.error(error.message);

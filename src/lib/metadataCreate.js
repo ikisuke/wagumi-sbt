@@ -6,6 +6,7 @@ const { makeExecutionData } = require('./makeLog');
 
 const { Client } = require('@notionhq/client');
 
+
 // alchemy sdkをimport
 // const { Network, Alchemy } = require('alchemy-sdk');
 
@@ -118,7 +119,11 @@ const getUserData = async (userId) => {
     }
   }
 
+
   const json = JSON.stringify(metadataStruct, null, 2);
+  if(!fs.existsSync(metadataDirectoryPath)) {
+    fs.mkdirSync(metadataDirectoryPath);
+  }
   fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 	} catch(error) {
 		console.error('create user data failed', error);
@@ -238,6 +243,7 @@ const createMetadata = async () => {
       await getUserData(userId);
     }
     fs.writeFileSync('src/executionData.json', executionData + '\n');
+    console.log('success!')
   } catch (error) {
     console.error('create metadata failed',error);
   }
