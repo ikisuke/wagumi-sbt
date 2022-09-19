@@ -108,3 +108,5 @@ dist
 
 # metadata
 metadata/
+src/executionData.json
+src/metadata.json
