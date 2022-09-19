@@ -118,7 +118,11 @@ const getUserData = async (userId) => {
     }
   }
 
+
   const json = JSON.stringify(metadataStruct, null, 2);
+  if(!fs.existsSync(metadataDirectoryPath)) {
+    fs.mkdirSync(metadataDirectoryPath);
+  }
   fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 	} catch(error) {
 		console.error('create user data failed', error);
