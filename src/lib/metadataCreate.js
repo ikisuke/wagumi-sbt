@@ -298,7 +298,7 @@ const pushContributionPage = async (pages) => {
 					return userId;
 				});
 				contributions.push(contribution);
-				console.log(contribution)
+				// console.log(contribution)
 	}
   const jsonData = JSON.stringify(contributions, null, 2);
   fs.writeFileSync('src/metadata.json', jsonData + '\n');
