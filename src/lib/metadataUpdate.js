@@ -48,7 +48,7 @@ const addContribution = async(userId, contribution) => {
 
     const dataForComparingUsersJson = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
     const forAddDataIndex = dataForComparingUsersJson.properties.contributions.findIndex((result) => {
-        Number(contribution.date.start.replaceAll("-", "")) > Number(result.date.start.replaceAll("-", ""));
+        Number(contribution.date.start.replaceAll("-", "")) >= Number(result.date.start.replaceAll("-", ""));
     })
     dataForComparingUsersJson.properties.contributions.splice(forAddDataIndex, 0, deletedUsersPropertiesContribution);
     const json = JSON.stringify(dataForComparingUsersJson, null, 2);
@@ -75,7 +75,7 @@ const updateContribution = async(userId, contribution) => {
     const comparedUserData = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
     const filterContributions = comparedUserData.properties.contributions.filter(result => contribution.properties.page_id !== result.properties.page_id);
     const forUpdateDataIndex = filterContributions.findIndex(result => 
-        Number(contribution.date.start.replaceAll("-", "")) > Number(result.date.start.replaceAll("-", ""))
+        Number(contribution.date.start.replaceAll("-", "")) >= Number(result.date.start.replaceAll("-", ""))
     );
     filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
     comparedUserData.properties.contributions = filterContributions;
@@ -183,7 +183,10 @@ const updateContributionPage = async () => {
             
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
                     targetPage.date.start = tmp.date.start;
-                    targetPage.date.end = tmp.date.end; 
+                    targetPage.date.end = tmp.date.end;
+                    if(!targetPage.date.end) {
+                        targetPage.date.end = "";
+                      }
                     
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
                     targetPage.users = tmp.results.map((user) =>{
@@ -216,6 +219,9 @@ const updateContributionPage = async () => {
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
                     contribution.date.start = tmp.date.start;
                     contribution.date.end = tmp.date.end;
+                    if(!contribution.date.end) {
+                        contribution.date.end = "";
+                    }
                     
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
                     contribution.users = tmp.results.map((user) =>{

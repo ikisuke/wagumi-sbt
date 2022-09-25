@@ -53,8 +53,7 @@ const { initializeExecutionData } = require('./src/lib/makeLog');
 "...~........~...(MggmggmgggMggmggmggmgggmggggMgggmggggmgmgggM}.~.~....~~~._\n" 
       );
 
-      await metadataCreate.createMetadata();
-      console.clear();
+      await metadataCreate.createMetadata();    
     } else {
       throw new Error('コマンドが違います')
     }
