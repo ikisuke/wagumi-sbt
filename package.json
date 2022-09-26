@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@notionhq/client": "^2.0.0",
+    "@notionhq/client": "^2.2.0",
     "alchemy-sdk": "^2.0.3",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
