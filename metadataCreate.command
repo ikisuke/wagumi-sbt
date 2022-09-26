@@ -18,4 +18,17 @@ done
 
  npm i
 
+ echo ------------------------
+ echo メタデータの作成(update)を開始します
  node main.js
+ echo ------------------------
+ echo コミットを開始します
+ cd ../wagumi-sbt
+ git add .
+ git commit -m "update metadata"
+ echo ------------------------
+ echo プッシュを開始します
+ git push origin main
+ echo ------------------------
+ echo Githubのサイトからプルリクエストを出してください
+ echo ------------------------"
