@@ -20,10 +20,9 @@ done
 
  echo "------------------------"
  echo  "メタデータの作成(update)を開始します"
- node main.js
+ node main.js update
  echo "------------------------"
  echo "コミットを開始します"
- cd ../wagumi-sbt
  git add .
  git commit -m "update metadata"
  echo "------------------------"
