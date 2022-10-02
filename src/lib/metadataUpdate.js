@@ -386,16 +386,11 @@ const checkArchivedData = async(metadataJson) => {
         if(isArchived) {
             return
         }
-        return result.properties.page_id
+        return result
     }))
-    const isArchivedContributions = archivedContributions.filter(result => result);
+    const isNotArchivedContributions = archivedContributions.filter(result => result);
+    return isNotArchivedContributions
     
-    console.log(isArchivedContributions)
-
-    const deletedMetadata = metadataJson.filter(result => isArchivedContributions.indexOf(result.properties.page_id) !== -1);
-    return deletedMetadata;
-    // const isArchivedContributions = archivedContributions.filter(result => result.archived);
-    // const deletedMetadata = metadataJson.filter(result =>isArchivedContributions.indexOf !=)
 }
 
 
