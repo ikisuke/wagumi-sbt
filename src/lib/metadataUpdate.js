@@ -7,10 +7,10 @@ const { Client } = require('@notionhq/client');
 const { makeExecutionData } = require('./makeLog');
 
 //本番環境
-const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
+// const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 
 //test環境
-// const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN});
+const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN});
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
@@ -66,6 +66,57 @@ const deleteContribution = async(userId, pageId) => {
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 }
 
+// const deleteContributionPage = async(metadataJson, lastExecutionTime) => {
+//     try {
+
+//         const request = { 
+//             //本番環境
+//                 // database_id: process.env.WAGUMI_DATABASE_ID,
+//             //test環境
+//             database_id: process.env.WAGUMI_TEST_DB_ID,
+//             filter: {
+//                 and: [
+//                     {
+//                         property: 'last_edited_time',
+//                         last_edited_time: {
+//                             after: lastExecutionTime
+//                         }        
+//                     },
+//                     {
+//                         property: 'publish',
+//                         checkbox: {
+//                             equals: false,
+//                         }
+//                     }
+//                 ],
+//                 sorts: [
+//                     {
+//                         property: 'date',
+//                         direction: 'descending',
+//                     },
+//                 ],
+//             }}
+
+//         let pages = await client.databases.query(request);
+
+//         for(const page of pages.results) {
+//             const users = await client.pages.properties.retrieve({page_id: page.id, property_id: page.properties.userId.id});
+//             for(const user of users) {
+//                 const userId = user.rich_text.plain_text;
+//                 deleteContribution(userId, page.id);
+//             }
+
+//             const deletePageIndex = metadataJson.findIndex(result => result.properties.page_id === page.id);
+//             metadataJson.splice(deletePageIndex, 1);
+//         }
+
+//         return metadataJson;
+
+//     } catch(error) {
+//         console.error(error);
+//     }
+// }
+
 const updateContribution = async(userId, contribution) => {
     // console.log('update contribution');
     const deletedUsersPropertiesContribution = Object.assign({}, contribution);
@@ -82,6 +133,8 @@ const updateContribution = async(userId, contribution) => {
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`,json + '\n');
 }
+
+
 
 const userSearch = (userId) => {
     const fileDir = fs.readdirSync(metadataDirectoryPath);
@@ -103,12 +156,21 @@ const updateContributionPage = async () => {
 
         const logFile = JSON.parse(fs.readFileSync('src/executionData.json'));
         const lastExecutionTime = logFile[0].time;
+
+
+        //archivedされたレピュテーションを削除するための仕組み
+        //もう少し効率的に書き出すことはできるだろうと思う。
+        metadataJson = await checkArchivedData(metadataJson);
+        console.log(metadataJson);
+        let jsonData = JSON.stringify(metadataJson,null,2);
+        fs.writeFileSync("src/metadata.json", jsonData);
+
             const request = {
                 //本番
-                database_id: process.env.WAGUMI_DATABASE_ID,
+                // database_id: process.env.WAGUMI_DATABASE_ID,
 
                 //test版
-                // database_id: process.env.WAGUMI_TEST_DB_ID,
+                database_id: process.env.WAGUMI_TEST_DB_ID,
                 //古いものから順番に追加していくので、updateの場合は昇順
                 sorts: [
                     {
@@ -186,7 +248,7 @@ const updateContributionPage = async () => {
                     targetPage.date.end = tmp.date.end;
                     if(!targetPage.date.end) {
                         targetPage.date.end = "";
-                      }
+                    }
                     
                     tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id});
                     targetPage.users = tmp.results.map((user) =>{
@@ -254,7 +316,8 @@ const updateContributionPage = async () => {
 
 
             }
-        const jsonData = JSON.stringify(metadataJson,null,2);
+        // const updatedMetadata = deleteContributionPage(metadataJson, lastExecutionTime);
+        jsonData = JSON.stringify(metadataJson,null,2);
         fs.writeFileSync("src/metadata.json", jsonData + '\n');
         fs.writeFileSync("src/executionData.json", executionData + '\n');
 
@@ -283,9 +346,9 @@ const createUserMetadata = async(userId) => {
 
     const request = { 
         //本番
-		database_id: process.env.WAGUMI_USER_DATABASE_ID,
+		// database_id: process.env.WAGUMI_USER_DATABASE_ID,
         //test版
-        // database_id: process.env.WAGUMI_TEST_USER_ID,
+        database_id: process.env.WAGUMI_TEST_USER_ID,
 		filter: {
 				property: 'id',
 				rich_text: {
@@ -314,6 +377,25 @@ const createUserMetadata = async(userId) => {
 
     const json = JSON.stringify(metadataStruct, null, 2);
 	fs.writeFileSync(metadataFilePath, json + '\n');
+}
+
+const checkArchivedData = async(metadataJson) => {
+    const archivedContributions = await Promise.all(metadataJson.map(async (result) => {
+        const page = await client.pages.retrieve({page_id: result.properties.page_id});
+        const isArchived = page.archived;
+        if(isArchived) {
+            return
+        }
+        return result.properties.page_id
+    }))
+    const isArchivedContributions = archivedContributions.filter(result => result);
+    
+    console.log(isArchivedContributions)
+
+    const deletedMetadata = metadataJson.filter(result => isArchivedContributions.indexOf(result.properties.page_id) !== -1);
+    return deletedMetadata;
+    // const isArchivedContributions = archivedContributions.filter(result => result.archived);
+    // const deletedMetadata = metadataJson.filter(result =>isArchivedContributions.indexOf !=)
 }
 
 

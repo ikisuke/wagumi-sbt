@@ -11,10 +11,10 @@ const { Client } = require('@notionhq/client');
 // const { Network, Alchemy } = require('alchemy-sdk');
 
 //本番環境
-const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
+// const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 
 //test環境用
-// const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN });
+const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN });
 
 
 
@@ -71,9 +71,9 @@ const getUserData = async (userId) => {
 
   const request = {
     //本番用
-    database_id: process.env.WAGUMI_USER_DATABASE_ID,
+    // database_id: process.env.WAGUMI_USER_DATABASE_ID,
     //test環境用
-    // database_id: process.env.WAGUMI_TEST_USER_ID,
+    database_id: process.env.WAGUMI_TEST_USER_ID,
     filter: {
       property: 'id',
       rich_text: {
@@ -209,9 +209,9 @@ const createMetadata = async () => {
 
 		const request = { 
       //本番環境
-			database_id: process.env.WAGUMI_DATABASE_ID,
+			// database_id: process.env.WAGUMI_DATABASE_ID,
       //test環境
-      // database_id: process.env.WAGUMI_TEST_DB_ID,
+      database_id: process.env.WAGUMI_TEST_DB_ID,
 			filter: {
 				property: 'publish',
 				checkbox: {
@@ -227,6 +227,7 @@ const createMetadata = async () => {
 		};
 
     let pages = await client.databases.query(request);
+    console.log(pages.results)
 
     await pushContributionPage(pages);
 
@@ -266,6 +267,9 @@ const pushContributionPage = async (pages) => {
       },
       users: [],
     };
+    
+    const retrivedPage = await client.pages.retrieve({page_id: page.id});
+    console.log(retrivedPage.archived);
 			//contributeにデータを追加するためのトリガー。falseの場合データ追加をしない。(計算数を減らす目的)
 	
 				
