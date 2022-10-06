@@ -161,7 +161,7 @@ const updateContributionPage = async () => {
         //archivedされたレピュテーションを削除するための仕組み
         //もう少し効率的に書き出すことはできるだろうと思う。
         metadataJson = await checkArchivedData(metadataJson);
-        console.log(metadataJson);
+        // console.log(metadataJson);
         let jsonData = JSON.stringify(metadataJson,null,2);
         fs.writeFileSync("src/metadata.json", jsonData);
 
