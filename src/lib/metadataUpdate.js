@@ -7,10 +7,10 @@ const { Client } = require('@notionhq/client');
 const { makeExecutionData } = require('./makeLog');
 
 //本番環境
-// const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
+const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 
 //test環境
-const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN});
+// const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN});
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
@@ -161,16 +161,16 @@ const updateContributionPage = async () => {
         //archivedされたレピュテーションを削除するための仕組み
         //もう少し効率的に書き出すことはできるだろうと思う。
         metadataJson = await checkArchivedData(metadataJson);
-        console.log(metadataJson);
+        // console.log(metadataJson);
         let jsonData = JSON.stringify(metadataJson,null,2);
         fs.writeFileSync("src/metadata.json", jsonData);
 
             const request = {
                 //本番
-                // database_id: process.env.WAGUMI_DATABASE_ID,
+                database_id: process.env.WAGUMI_DATABASE_ID,
 
                 //test版
-                database_id: process.env.WAGUMI_TEST_DB_ID,
+                // database_id: process.env.WAGUMI_TEST_DB_ID,
                 //古いものから順番に追加していくので、updateの場合は昇順
                 sorts: [
                     {
@@ -346,9 +346,9 @@ const createUserMetadata = async(userId) => {
 
     const request = { 
         //本番
-		// database_id: process.env.WAGUMI_USER_DATABASE_ID,
+		database_id: process.env.WAGUMI_USER_DATABASE_ID,
         //test版
-        database_id: process.env.WAGUMI_TEST_USER_ID,
+        // database_id: process.env.WAGUMI_TEST_USER_ID,
 		filter: {
 				property: 'id',
 				rich_text: {
@@ -384,18 +384,17 @@ const checkArchivedData = async(metadataJson) => {
         const page = await client.pages.retrieve({page_id: result.properties.page_id});
         const isArchived = page.archived;
         if(isArchived) {
+            const users = result.users;
+            for(const userId of users) {
+                deleteContribution(userId, result.properties.page_id);
+            }
             return
         }
-        return result.properties.page_id
+        return result
     }))
-    const isArchivedContributions = archivedContributions.filter(result => result);
+    const isNotArchivedContributions = archivedContributions.filter(result => result);
+    return isNotArchivedContributions
     
-    console.log(isArchivedContributions)
-
-    const deletedMetadata = metadataJson.filter(result => isArchivedContributions.indexOf(result.properties.page_id) !== -1);
-    return deletedMetadata;
-    // const isArchivedContributions = archivedContributions.filter(result => result.archived);
-    // const deletedMetadata = metadataJson.filter(result =>isArchivedContributions.indexOf !=)
 }
 
 
