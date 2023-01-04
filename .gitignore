@@ -110,3 +110,6 @@ dist
 metadata/
 src/executionData.json
 src/metadata.json
+
+# experiment
+experiment/

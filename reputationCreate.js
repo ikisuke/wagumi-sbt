@@ -1,14 +1,16 @@
-require('dotenv').config();
+const dotenv = require('dotenv')
+dotenv.config();
 
 const fs = require('fs');
 
-const { makeExecutionData } = require('./makeLog');
+// const { makeExecutionData } = require('./makeLog');
 
 const { Client } = require('@notionhq/client');
 
 
 // alchemy sdkをimport
 // const { Network, Alchemy } = require('alchemy-sdk');
+
 
 //本番環境
 const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
@@ -53,11 +55,15 @@ const contributions = [];
 //   },
 // ];
 
-const metadataDirectoryPath = process.env.METADATA_PATH;
+// const reputationDirectoryPath = process.env.REPUTATION_PATH;
+
+// const metadataDirectoryPath = process.env.METADATA_PATH;
+
 
 //引数にTokens
 const getUserData = async (userId) => {
   const metadataStruct = {
+    length: 0,
     name: '',
     description: 'He/She is one of wagumi members.',
     image: '',
@@ -102,11 +108,13 @@ const getUserData = async (userId) => {
 
 	const replacedStr = external_url_id.replace(/-/g, "");
 
+
+
 	metadataStruct.image = process.env.SBT_IMAGE_URL + userId;
     
     metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
-	const metadataJson = JSON.parse(fs.readFileSync('src/metadata.json', 'utf-8'));
+	const metadataJson = JSON.parse(fs.readFileSync('src/reputation.json', 'utf-8'));
 
   for (const contribution of metadataJson) {
     if (contribution.users.includes(userId)) {
@@ -117,12 +125,14 @@ const getUserData = async (userId) => {
     }
   }
 
+  console.log(metadataStruct.properties.contributions.length);
+  metadataStruct.length = metadataStruct.properties.contributions.length;
 
   const json = JSON.stringify(metadataStruct, null, 2);
-  if(!fs.existsSync(metadataDirectoryPath)) {
-    fs.mkdirSync(metadataDirectoryPath);
+  if(!fs.existsSync('src/experiment/reputation/')) {
+    fs.mkdirSync('src/experiment/reputation/');
   }
-  fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
+  fs.writeFileSync('src/experiment/reputation/' + `${userId}.json`, json + '\n');
 	} catch(error) {
 		console.error('create user data failed', error);
 	}
@@ -201,23 +211,23 @@ const userSearch = async () => {
 // })();
 
 const createMetadata = async () => {
-  const executionMessage = 'create metadata';
-  let executionData;
+  // const executionMessage = 'create metadata';
+  // let executionData;
 
 	try {
-        executionData = makeExecutionData(executionMessage);
+        // executionData = makeExecutionData(executionMessage);
 
 		const request = { 
       //本番環境
 			database_id: process.env.WAGUMI_DATABASE_ID,
       //test環境
       // database_id: process.env.WAGUMI_TEST_DB_ID,
-			filter: {
-				property: 'publish',
-				checkbox: {
-					equals: true,
-				}
-			},
+			// filter: {
+			// 	property: 'publish',
+			// 	checkbox: {
+			// 		equals: true,
+			// 	}
+			// },
 			sorts: [
 				{
 					property: 'date',
@@ -241,7 +251,7 @@ const createMetadata = async () => {
     for (let userId of userIds) {
       await getUserData(userId);
     }
-    fs.writeFileSync('src/executionData.json', executionData + '\n');
+    // fs.writeFileSync('src/executionData.json', executionData + '\n');
     console.log('success!')
   } catch (error) {
     console.error('create metadata failed',error);
@@ -279,7 +289,6 @@ const pushContributionPage = async (pages) => {
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id});
 				contribution.name = tmp.results[0].title.plain_text;
 		
-        //imageが設定されていない場合
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id});
         console.log(tmp);
                   if(tmp.files.length == 0) {
@@ -291,7 +300,9 @@ const pushContributionPage = async (pages) => {
                   }
     
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id});
-				contribution.description = tmp.results[0].rich_text.plain_text;
+        if(tmp.results.length > 0) {
+				  contribution.description = tmp.results[0].rich_text.plain_text;
+        }
 		
 				tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id});
 				contribution.date.start = tmp.date.start;
@@ -309,10 +320,16 @@ const pushContributionPage = async (pages) => {
 				console.log(contribution)
 	}
   const jsonData = JSON.stringify(contributions, null, 2);
-  fs.writeFileSync('src/metadata.json', jsonData + '\n');
+  fs.writeFileSync('src/reputation.json', jsonData + '\n');
   // json形式に変換して、ファイル作成
   // コマンドラインの第一引数(discordのユーザーID)をファイル名にする
 };
 exports.createMetadata = createMetadata;
 exports.userSearch = userSearch;
 // exports.getTokenData = getTokenData;
+(async () => {
+  console.log(process.env.WAGUMI_SAMURAI_API_TOKEN);
+  // console.log(reputationDirectoryPath);
+  // console.log(metadataDirectoryPath);
+  await createMetadata();
+})();
