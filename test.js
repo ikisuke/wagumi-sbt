@@ -2,6 +2,7 @@ require('dotenv').config();
 
 
 const { Client } = require('@notionhq/client');
+const { CommandInteractionOptionResolver } = require('discord.js');
 const { query } = require('express');
 
 // alchemy sdkをimport
@@ -15,56 +16,56 @@ const users = [
 const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 
 const createMetadata = async () => {
-      try {
-          for(const user of users) {
-            const request = {
-              //本番用
-              database_id: process.env.WAGUMI_USER_DATABASE_ID,
-              //test環境用
-              // database_id: process.env.WAGUMI_TEST_USER_ID,
-              filter: {
-                and: [
-                  {
-                    property: 'id',
-                      rich_text: {
-                        equals: user,
-                      },
-                  },{
-                    property: 'roles',
-                      multi_select: {
-                        contains: 'Wagumi SBT'
-                      }
-                    }
-                ]
-              },
-          };
+  try {
 
-            const pages = await client.databases.query(request);
-            if(!pages) {
-              console.log(user, false);
-            } else {
-              console.log(user, true);
-            }
-            // console.log(pages.results[0].properties.roles);
-          }
-        
-
-        // await pushContributionPage(pages);
-
-        // const results = await client.pages.retrieve({page_id: 'f57e14f9-2950-4faf-aaad-474730102da4'});
-        // console.log(results.properties.roles);
-    } catch (error) {
-      console.error('create metadata failed',user);
-    }
-  };
-  
-    const pushContributionPage = async (pages) => {
-      for (const page of pages.results) {
-          console.log(page.properties.users);
+    const request = {
+      //本番環境
+      database_id: process.env.WAGUMI_DATABASE_ID,
+      //test環境
+      // database_id: process.env.WAGUMI_TEST_DB_ID,
+      filter: {
+        property: 'published',
+        checkbox: {
+          equals: true,
         }
+      },
+      sorts: [
+        {
+          property: 'date',
+          direction: 'descending',
+        },
+      ],
     };
 
-  (async () => {
-    console.log(process.env.WAGUMI_SAMURAI_API_TOKEN);
-      await createMetadata();
-  })();
+    const pages = await client.databases.query(request);
+    for (const page of pages.results) {
+      // console.log(page);
+      let tmp;
+      tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.weighting.id });
+      const weighting = tmp.select.name;
+      const count = weighting.length;
+      console.log(count);
+    }
+    // console.log(pages.results[0].properties.roles);
+
+
+
+    // await pushContributionPage(pages);
+
+    // const results = await client.pages.retrieve({page_id: 'f57e14f9-2950-4faf-aaad-474730102da4'});
+    // console.log(results.properties.roles);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const pushContributionPage = async (pages) => {
+  for (const page of pages.results) {
+    console.log(page.properties.users);
+  }
+};
+
+(async () => {
+  // console.log(process.env.WAGUMI_SAMURAI_API_TOKEN);
+  await createMetadata();
+})();
