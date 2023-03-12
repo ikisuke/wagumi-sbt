@@ -55,6 +55,15 @@ const addContribution = async (userId, contribution) => {
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + `\n`);
 }
 
+//更新時にweightingを再計算することで、レピュテーションを調整する。
+const calculateWeighting = async (contributions) => {
+    let weightingSum = 0;
+    for (const contribution of contributions) {
+        weightingSum += contribution.weighting.length;
+    }
+    return weightingSum;
+}
+
 
 //比較後にuserが消えていた場合に、該当ユーザーのcontributionを削除
 const deleteContribution = async (userId, pageId) => {
@@ -130,6 +139,7 @@ const updateContribution = async (userId, contribution) => {
     );
     filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
     comparedUserData.properties.contributions = filterContributions;
+    comparedUserData.attributes[1].value = calculateWeighting(filterContributions);
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 }
@@ -216,6 +226,7 @@ const updateContributionPage = async () => {
                     page_id: "",
                     reference: []
                 },
+                weighting: 0,
                 date: {
                     start: "",
                     end: ""
@@ -255,6 +266,10 @@ const updateContributionPage = async () => {
                     let userId = user.rich_text.plain_text;
                     return userId;
                 });
+
+                tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.weighting.id })
+                contribution.weighting = tmp.select.name.length;
+
                 const filterContributions = metadataJson.filter(result => targetPage.properties.page_id !== result.id);
                 const changeContributionIndex = filterContributions.findIndex(result =>
                     Number(result.date.start.replaceAll("-", "")) < Number(targetPage.date.start.replaceAll("-", ""))
@@ -290,6 +305,10 @@ const updateContributionPage = async () => {
                     let userId = user.rich_text.plain_text;
                     return userId;
                 });
+
+                tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.weighting.id })
+                contribution.weighting = tmp.select.name.length;
+
                 const addContributionIndex = metadataJson.findIndex(result =>
                     Number(result.date.start.replaceAll("-", "")) < Number(contribution.date.start.replaceAll("-", ""))
                 );
@@ -311,6 +330,7 @@ const updateContributionPage = async () => {
             for (userId of contribution.users) {
                 if (userSearch(userId)) {
                     await updateContribution(userId, contribution);
+                    await calculateWeighting(userId, contribution);
                 }
             }
 
@@ -342,6 +362,9 @@ const createUserMetadata = async (userId) => {
             sns: {},
             contributions: []
         },
+        attribute: [
+            { trait_type: "weighting" }, { value: 0 }
+        ]
     };
 
     const request = {
