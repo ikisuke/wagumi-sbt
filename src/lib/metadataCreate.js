@@ -67,7 +67,7 @@ const getUserData = async (userId) => {
       sns: {},
       contributions: []
     },
-    attribute: [
+    attributes: [
       { trait_type: "weighting" }, { value: 0 }
     ]
   };
@@ -117,7 +117,7 @@ const getUserData = async (userId) => {
         const userContribution = contribution;
         delete userContribution.users;
         delete userContribution.last_edited_time;
-        metadataStruct.attribute[1].value += userContribution.weighting;
+        metadataStruct.attributes[1].value += userContribution.weighting;
         metadataStruct.properties.contributions.push(userContribution);
       }
     }
