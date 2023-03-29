@@ -128,12 +128,10 @@ const deleteContribution = async (userId, pageId) => {
 // }
 
 const updateContribution = async (userId, contribution) => {
-    // console.log('update contribution');
     const deletedUsersPropertiesContribution = Object.assign({}, contribution);
     delete deletedUsersPropertiesContribution.users;
     delete deletedUsersPropertiesContribution.last_edited_time;
 
-    console.log(userId);
     const comparedUserData = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
     const filterContributions = comparedUserData.properties.contributions.filter(result => contribution.properties.page_id !== result.properties.page_id);
     const forUpdateDataIndex = filterContributions.findIndex(result =>
