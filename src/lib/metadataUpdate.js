@@ -332,7 +332,7 @@ const updateContributionPage = async () => {
             for (userId of contribution.users) {
                 if (userSearch(userId)) {
                     await updateContribution(userId, contribution);
-                    await calculateWeighting(userId, contribution);
+                    // await calculateWeighting(userId, contribution);
                 }
             }
 
