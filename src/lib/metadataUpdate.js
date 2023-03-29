@@ -139,7 +139,7 @@ const updateContribution = async (userId, contribution) => {
     );
     filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
     comparedUserData.properties.contributions = filterContributions;
-    console.log(comparedUserData.attributes[1].value)
+    console.log(userId, comparedUserData.attributes[1].value)
     comparedUserData.attributes[1].value = calculateWeighting(filterContributions);
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
