@@ -61,6 +61,7 @@ const calculateWeighting = async (contributions) => {
     for (const contribution of contributions) {
         weightingSum += contribution.weighting;
     }
+    console.log(weightingSum);
     return weightingSum;
 }
 
