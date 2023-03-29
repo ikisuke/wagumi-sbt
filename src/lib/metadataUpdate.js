@@ -59,7 +59,7 @@ const addContribution = async (userId, contribution) => {
 const calculateWeighting = async (contributions) => {
     let weightingSum = 0;
     for (const contribution of contributions) {
-        weightingSum += contribution.weighting.length;
+        weightingSum += contribution.weighting;
     }
     return weightingSum;
 }
