@@ -362,7 +362,7 @@ const createUserMetadata = async (userId) => {
             sns: {},
             contributions: []
         },
-        attribute: [
+        attributes: [
             { trait_type: "weighting" }, { value: 0 }
         ]
     };
