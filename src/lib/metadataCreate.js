@@ -127,9 +127,8 @@ const getUserData = async (userId) => {
 
 
     const json = JSON.stringify(metadataStruct, null, 2);
-    if (!fs.existsSync(metadataDirectoryPath)) {
-      fs.mkdirSync(metadataDirectoryPath);
-    }
+
+
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
   } catch (error) {
     failedIdList.push(userId);
@@ -246,6 +245,15 @@ const createMetadata = async () => {
       await pushContributionPage(pages);
     }
     const userIds = await userSearch();
+
+    // metadataディレクトリが存在しない場合は作成
+    if (!fs.existsSync(metadataDirectoryPath)) {
+      fs.mkdirSync(metadataDirectoryPath);
+    }
+    // metadataディレクトリ直下のファイルを全て削除
+    fs.readdirSync(metadataDirectoryPath).forEach((file) => {
+      fs.unlinkSync(metadataDirectoryPath + file);
+    });
 
     for (let userId of userIds) {
       await getUserData(userId);
