@@ -139,6 +139,7 @@ const updateContribution = async (userId, contribution) => {
     );
     filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
     comparedUserData.properties.contributions = filterContributions;
+    console.log(userId);
     comparedUserData.attributes[1].value = await calculateWeighting(filterContributions);
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
@@ -242,7 +243,7 @@ const updateContributionPage = async () => {
                 targetPage.last_edited_time = page.last_edited_time
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id });
-                targetPage.name = tmp.results[0].title.plain_text;
+                targetPage.name = tmp.results[0].title.plain_texts;
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id });
                 if (tmp.files[0].file) {
