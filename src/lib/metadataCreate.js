@@ -55,6 +55,9 @@ const contributions = [];
 
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
+// 失敗時のidを取得するためのリスト
+const failedIdList = [];
+
 //引数にTokens
 const getUserData = async (userId) => {
   const metadataStruct = {
@@ -129,6 +132,7 @@ const getUserData = async (userId) => {
     }
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
   } catch (error) {
+    failedIdList.push(userId);
     console.error('create user data failed', error);
   }
 };
@@ -246,6 +250,14 @@ const createMetadata = async () => {
     for (let userId of userIds) {
       await getUserData(userId);
     }
+
+    // 取得失敗に対して再取得を行う関数
+    while (failedIdList.length > 0) {
+      const failedId = failedIdList.shift();
+      console.log('making again', failedId)
+      await getUserData(failedId);
+    }
+
     fs.writeFileSync('src/executionData.json', executionData + '\n');
     console.log('success!')
   } catch (error) {
