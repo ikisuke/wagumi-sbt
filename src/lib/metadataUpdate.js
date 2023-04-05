@@ -237,6 +237,7 @@ const updateContributionPage = async () => {
 
             contribution.properties.page_id = page.id;
             const targetPage = metadataJson.find((result) => result.properties.page_id === contribution.properties.page_id);
+            console.log(targetPage);
             //contributionの変更と追加で分ける
             if (targetPage) {
                 // console.log('patch')
