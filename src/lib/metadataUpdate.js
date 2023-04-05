@@ -243,7 +243,7 @@ const updateContributionPage = async () => {
                 targetPage.last_edited_time = page.last_edited_time
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id });
-                targetPage.name = tmp.results[0].title.plain_texts;
+                targetPage.name = tmp.results[0].title.plain_text;
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id });
                 if (tmp.files[0].file) {
