@@ -270,6 +270,7 @@ const updateContributionPage = async () => {
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.weighting.id })
                 contribution.weighting = tmp.select.name.length;
+                console.log(contribution);
 
                 const filterContributions = metadataJson.filter(result => targetPage.properties.page_id !== result.id);
                 const changeContributionIndex = filterContributions.findIndex(result =>
