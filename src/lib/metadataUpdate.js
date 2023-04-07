@@ -239,7 +239,7 @@ const updateContributionPage = async () => {
             const targetPage = metadataJson.find((result) => result.properties.page_id === contribution.properties.page_id);
             //contributionの変更と追加で分ける
             if (targetPage) {
-                // console.log('patch')
+                console.log('patch')
                 targetPage.last_edited_time = page.last_edited_time
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id });
@@ -280,7 +280,7 @@ const updateContributionPage = async () => {
                 metadataJson = filterContributions;
                 contribution = targetPage;
             } else {
-                // console.log('add');
+                console.log('add');
                 contribution.last_edited_time = page.last_edited_time
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id });
