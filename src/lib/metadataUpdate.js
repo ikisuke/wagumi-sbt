@@ -140,6 +140,9 @@ const updateContribution = async (userId, contribution) => {
     filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
     comparedUserData.properties.contributions = filterContributions;
     console.log(userId);
+    if (userId == NaN) {
+        console.error('NaN')
+    }
     comparedUserData.attributes[1].value = await calculateWeighting(filterContributions);
     const json = JSON.stringify(comparedUserData, null, 2);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
