@@ -401,6 +401,8 @@ const createUserMetadata = async (userId) => {
 
     metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
+    metadataStruct.attributes[1].value = await calculateWeighting(userId);
+
     const json = JSON.stringify(metadataStruct, null, 2);
     fs.writeFileSync(metadataFilePath, json + '\n');
 }
