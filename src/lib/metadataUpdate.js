@@ -239,10 +239,17 @@ const updateContributionPage = async () => {
             };
 
             contribution.properties.page_id = page.id;
-            const targetPage = metadataJson.find((result) => result.properties.page_id === contribution.properties.page_id);
+            const targetPageIndex = metadataJson.findIndex((result) => result.properties.page_id === contribution.properties.page_id);
             //contributionの変更と追加で分ける
-            if (targetPage) {
+            if (targetPageIndex !== -1) {
                 console.log('patch')
+
+                //重複分の削除
+                const filterPages = metadataJson.filter((result) => result.properties.page_id === contribution.properties.page_id);
+
+                const targetPages = metadataJson.splice(targetPageIndex, filterPages.length);
+                const targetPage = targetPages[0];
+
                 targetPage.last_edited_time = page.last_edited_time
 
                 tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id });
@@ -318,7 +325,7 @@ const updateContributionPage = async () => {
                 const addContributionIndex = metadataJson.findIndex(result =>
                     Number(result.date.start.replaceAll("-", "")) < Number(contribution.date.start.replaceAll("-", ""))
                 );
-                // console.log(addContributionIndex);
+                console.log(addContributionIndex);
                 metadataJson.splice(addContributionIndex, 0, contribution);
             }
 
