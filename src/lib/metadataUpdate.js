@@ -16,6 +16,8 @@ const metadataDirectoryPath = process.env.METADATA_PATH;
 
 //usersの比較
 // 最終的に、metadata.jsonの中身を更新する。
+// 何を比較しようとしているのか？ なんの値をリターンするのか？
+// 　→　contributionの中身を比較して、userIdをリターンする。
 const compareUsers = async (contribution) => {
     let userIds = {
         forDelete: [],
@@ -57,6 +59,8 @@ const addContributionByUser = async (userId, contribution) => {
 
 
     const dataForComparingUsersJson = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
+
+    // ここでweightingの足し算を行ってもいい？
 
     // Q: 以下の処理は、何をしているのか？
     // A: metadata.json内のcontributionの日付を比較して、sortをかけている。
@@ -161,6 +165,7 @@ const updateContribution = async (userId, contribution) => {
     comparedUserData.properties.contributions = filterContributions;
     comparedUserData.attributes[1].value = await calculateWeighting(filterContributions);
     const json = JSON.stringify(comparedUserData, null, 2);
+    console.log(json);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 }
 
@@ -176,6 +181,7 @@ const userSearch = (userId) => {
     const fileIds = fileDir.map((id) => {
         return id.replace(/.json/g, "");
     })
+    console.log(userId, fileIds.includes(userId));
     return (fileIds.includes(userId));
 }
 
@@ -359,17 +365,16 @@ const updateContributionPage = async () => {
             for (const deleteUserId of comparedUsers.forDelete) {
                 // 命名規則をユーザーごとのContributionがわかるようなものにしたい
                 // 例: deleteContributionByUser
-                deleteContributionByUser(deleteUserId, contribution.properties.page_id);
+                await deleteContributionByUser(deleteUserId, contribution.properties.page_id);
             }
 
             // addUserIdは更新時に、追加するユーザーのidが格納された配列
             // これを元にaddContributionを実行する
             for (const addUserId of comparedUsers.forAdd) {
-                addContributionByUser(addUserId, contribution);
+                await addContributionByUser(addUserId, contribution);
             }
 
-            // Q:以下は、何を条件に行われている？
-            // A:更新時に、ユーザーのidが変更された場合に、そのユーザーのコントリビューションを更新する
+
             for (userId of contribution.users) {
                 if (userSearch(userId)) {
                     await updateContribution(userId, contribution);
