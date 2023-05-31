@@ -15,6 +15,9 @@ const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 const metadataDirectoryPath = process.env.METADATA_PATH;
 
 //usersの比較
+// 最終的に、metadata.jsonの中身を更新する。
+// 何を比較しようとしているのか？ なんの値をリターンするのか？
+// 　→　contributionの中身を比較して、userIdをリターンする。
 const compareUsers = async (contribution) => {
     let userIds = {
         forDelete: [],
@@ -24,7 +27,7 @@ const compareUsers = async (contribution) => {
     const targetPage = dataForComparingUsersJson.find((result) => result.properties.page_id === contribution.properties.page_id);
     if (!targetPage) {
         for (const userId of contribution.users) {
-            await addContribution(userId, contribution);
+            await addContributionByUser(userId, contribution);
         };
         return userIds;
     }
@@ -36,7 +39,7 @@ const compareUsers = async (contribution) => {
 
 //新しいページが追加されたときに追加処理をかける
 
-const addContribution = async (userId, contribution) => {
+const addContributionByUser = async (userId, contribution) => {
     // console.log('add contribution');
 
     // もし、./metadata/${userId}.jsonが存在しない場合は、新規作成する。
@@ -56,6 +59,8 @@ const addContribution = async (userId, contribution) => {
 
 
     const dataForComparingUsersJson = JSON.parse(fs.readFileSync(metadataDirectoryPath + `${userId}.json`));
+
+    // ここでweightingの足し算を行ってもいい？
 
     // Q: 以下の処理は、何をしているのか？
     // A: metadata.json内のcontributionの日付を比較して、sortをかけている。
@@ -79,7 +84,7 @@ const calculateWeighting = async (contributions) => {
 
 
 //比較後にuserが消えていた場合に、該当ユーザーのcontributionを削除
-const deleteContribution = async (userId, pageId) => {
+const deleteContributionByUser = async (userId, pageId) => {
     // {userId}.jsonを読み込む
     const comparedUserFile = fs.readFileSync(metadataDirectoryPath + `${userId}.json`);
     const comparedUserData = JSON.parse(comparedUserFile);
@@ -160,6 +165,7 @@ const updateContribution = async (userId, contribution) => {
     comparedUserData.properties.contributions = filterContributions;
     comparedUserData.attributes[1].value = await calculateWeighting(filterContributions);
     const json = JSON.stringify(comparedUserData, null, 2);
+    console.log(json);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
 }
 
@@ -175,6 +181,7 @@ const userSearch = (userId) => {
     const fileIds = fileDir.map((id) => {
         return id.replace(/.json/g, "");
     })
+    console.log(userId, fileIds.includes(userId));
     return (fileIds.includes(userId));
 }
 
@@ -353,16 +360,20 @@ const updateContributionPage = async () => {
 
             // deleteUserIdは更新時に、削除するユーザーのidが格納された配列
             // これを元にdeleteContributionを実行する
+
             const comparedUsers = await compareUsers(contribution);
             for (const deleteUserId of comparedUsers.forDelete) {
-                deleteContribution(deleteUserId, contribution.properties.page_id);
+                // 命名規則をユーザーごとのContributionがわかるようなものにしたい
+                // 例: deleteContributionByUser
+                await deleteContributionByUser(deleteUserId, contribution.properties.page_id);
             }
 
             // addUserIdは更新時に、追加するユーザーのidが格納された配列
             // これを元にaddContributionを実行する
             for (const addUserId of comparedUsers.forAdd) {
-                addContribution(addUserId, contribution);
+                await addContributionByUser(addUserId, contribution);
             }
+
 
             for (userId of contribution.users) {
                 if (userSearch(userId)) {
@@ -448,7 +459,7 @@ const checkArchivedData = async (metadataJson) => {
         if (isArchived) {
             const users = result.users;
             for (const userId of users) {
-                deleteContribution(userId, result.properties.page_id);
+                deleteContributionByUser(userId, result.properties.page_id);
             }
             return
         }
