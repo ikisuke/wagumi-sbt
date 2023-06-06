@@ -163,7 +163,7 @@ const updateContribution = async (userId, contribution) => {
     );
     filterContributions.splice(forUpdateDataIndex, 0, deletedUsersPropertiesContribution);
     comparedUserData.properties.contributions = filterContributions;
-    comparedUserData.attributes[1].value = await calculateWeighting(filterContributions);
+    comparedUserData.attributes[0].value = await calculateWeighting(filterContributions);
     const json = JSON.stringify(comparedUserData, null, 2);
     console.log(json);
     fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
@@ -411,7 +411,7 @@ const createUserMetadata = async (userId) => {
             contributions: []
         },
         attributes: [
-            { trait_type: "weighting" }, { value: 0 }
+            { trait_type: "weighting", value: 0 },
         ]
     };
 
@@ -446,7 +446,7 @@ const createUserMetadata = async (userId) => {
 
     metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
-    metadataStruct.attributes[1].value = 0;
+    metadataStruct.attributes[0].value = 0;
 
     const json = JSON.stringify(metadataStruct, null, 2);
     fs.writeFileSync(metadataFilePath, json + '\n');
