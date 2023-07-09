@@ -1,9 +1,17 @@
 ## 実行方法
 ### metadataフォルダ作成
-`$mkdir src/metadata`
+```bash
+$mkdir src/metadata
+```
 ### metadata作成
-`$node main.js create`
+```bash
+$node main.js create
+```
 ### metadata更新
-`$node main.js update`
+```bash
+$node main.js update
+```
 ### .envファイル作成
-`$mv .env.sample .env`
+```bash
+$mv .env.sample .env
+```
