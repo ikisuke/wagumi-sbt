@@ -5,9 +5,11 @@ const fs = require("fs");
 const { Client } = require("@notionhq/client");
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require("./makeLog");
+const { env } = require("./external/dotenv");
+const { getOwnersForNft } = require("./external/alchemy");
 
 //本番環境
-const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
+const client = new Client({ auth: env.WAGUMI_SAMURAI_API_TOKEN });
 
 let errorLog = {
   name: "",
@@ -16,9 +18,9 @@ let errorLog = {
 const errorLogs = [];
 
 //test環境
-// const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN});
+// const client = new Client({ auth: env.WAGUMI_TEST_API_TOKEN});
 
-const metadataDirectoryPath = process.env.METADATA_PATH;
+const metadataDirectoryPath = env.METADATA_PATH;
 
 //usersの比較
 // 最終的に、metadata.jsonの中身を更新する。
@@ -125,9 +127,9 @@ const deleteContributionByUser = async (userId, pageId) => {
 
 //         const request = {
 //             //本番環境
-//                 // database_id: process.env.WAGUMI_DATABASE_ID,
+//                 // database_id: env.WAGUMI_DATABASE_ID,
 //             //test環境
-//             database_id: process.env.WAGUMI_TEST_DB_ID,
+//             database_id: env.WAGUMI_TEST_DB_ID,
 //             filter: {
 //                 and: [
 //                     {
@@ -222,6 +224,7 @@ const userSearch = (userId) => {
 const updateContributionPage = async () => {
   const executionMessage = "update metadata";
   let executionData;
+  let updateUserIds;
 
   try {
     executionData = makeExecutionData(executionMessage);
@@ -240,7 +243,7 @@ const updateContributionPage = async () => {
 
     const request = {
       //本番
-      database_id: process.env.WAGUMI_DATABASE_ID,
+      database_id: env.WAGUMI_DATABASE_ID,
 
       //test版
       // database_id: process.env.WAGUMI_TEST_DB_ID,
@@ -452,6 +455,8 @@ const updateContributionPage = async () => {
       // これを元にdeleteContributionを実行する
 
       const comparedUsers = await compareUsers(contribution);
+      // updateUserIdsにcompareUsersの中身をコピーする
+      updateUserIds = Object.assign({}, comparedUsers);
       for (const deleteUserId of comparedUsers.forDelete) {
         // 命名規則をユーザーごとのContributionがわかるようなものにしたい
         // 例: deleteContributionByUser
@@ -490,6 +495,8 @@ contribution: ${JSON.stringify(errorLogs, null, 2)}
     jsonData = JSON.stringify(metadataJson, null, 2);
     fs.writeFileSync("src/metadata.json", jsonData + "\n");
     fs.writeFileSync("src/executionData.json", executionData + "\n");
+
+    return updateUserIds;
   } catch (error) {
     console.error(error);
   }
@@ -513,9 +520,9 @@ const createUserMetadata = async (userId) => {
 
   const request = {
     //本番
-    database_id: process.env.WAGUMI_USER_DATABASE_ID,
+    database_id: env.WAGUMI_USER_DATABASE_ID,
     //test版
-    // database_id: process.env.WAGUMI_TEST_USER_ID,
+    // database_id: env.WAGUMI_TEST_USER_ID,
     filter: {
       property: "id",
       rich_text: {
@@ -536,14 +543,13 @@ const createUserMetadata = async (userId) => {
   });
   metadataStruct.name = tmp.results[0].title.plain_text;
 
-  metadataStruct.image = process.env.SBT_IMAGE_URL + userId;
+  metadataStruct.image = env.SBT_IMAGE_URL + userId;
 
   let external_url_id = page.id;
 
   const replacedStr = external_url_id.replace(/-/g, "");
 
-  metadataStruct.external_url =
-    process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
+  metadataStruct.external_url = env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
   metadataStruct.attributes[0].value = 0;
 
@@ -574,13 +580,59 @@ const checkArchivedData = async (metadataJson) => {
   return isNotArchivedContributions;
 };
 
-const update = async () => {
-  await updateContributionPage();
-};
+// meetadataディレクトリのuserId.jsonを読み込んで、ウォレットのアドレスを取得する。
 
 const pageIdUrlMaker = (pageId) => {
   pageId = pageId.replace(/-/g, "");
-  return `${process.env.WAGUMI_CONTRIBUTION_URL}${pageId};`;
+  return `${env.WAGUMI_CONTRIBUTION_URL}${pageId};`;
 };
 
-exports.update = update;
+const main = async () => {
+  try {
+    const updateId = await updateContributionPage();
+    // userIdから、walletAddressを取得する。
+    // addressに書き込むid
+
+    console.log(`
+      ============== Update ======================
+          
+      Address情報を更新しています。
+          
+      ===========================================
+                  `);
+
+    const addressesForAdd = [];
+    const addressesForDelete = [];
+
+    for (const userId of updateId.forAdd) {
+      const address = await getOwnersForNft(userId);
+      addressesForAdd.push(address);
+    }
+    for (const userId of updateId.forDelete) {
+      const address = await getOwnersForNft(userId);
+      addressesForDelete.push(address);
+    }
+
+    const addresses = fs.readFileSync("src/address.json");
+    const addressJson = JSON.parse(addresses);
+
+    for (const address of addressesForAdd) {
+      if (addressJson.includes(address)) {
+        continue;
+      }
+      addressJson.push(address);
+    }
+
+    for (const address of addressesForDelete) {
+      const index = addressJson.indexOf(address);
+      addressJson.splice(index, 1);
+    }
+
+    const json = JSON.stringify(addressJson, null, 2);
+    fs.writeFileSync("src/address.json", json + "\n");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+exports.update = main;

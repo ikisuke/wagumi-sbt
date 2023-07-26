@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@notionhq/client": "^2.2.2",
+    "alchemy-sdk": "^2.9.2",
     "chart.js": "^4.0.1",
     "dotenv": "^16.0.3",
     "path": "^0.12.7"
