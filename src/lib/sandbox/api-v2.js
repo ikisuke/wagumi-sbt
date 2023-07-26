@@ -1,5 +1,5 @@
 const fs = require("fs");
-let addressData = fs.readFileSync("src/address.json", "utf8");
+let addressData = fs.readFileSync("src/addressHash.json", "utf8");
 addressData = JSON.parse(addressData);
 
 const main = async () => {

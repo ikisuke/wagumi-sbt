@@ -17,7 +17,11 @@ const getOwnersForNft = async (
   contractAddress = "0xef756b67b90026F91D047D1b991F87D657309A42"
 ) => {
   try {
-    const owners = await alchemy.nft.getOwnersForNft(contractAddress, tokenId);
+    const owners = await alchemy.nft.getOwnersForNft(
+      contractAddress,
+      "495980446245584948"
+    );
+    console.log(owners);
     return owners.owners[0];
   } catch (error) {
     console.log(error);
@@ -25,3 +29,4 @@ const getOwnersForNft = async (
 };
 
 exports.getOwnersForNft = getOwnersForNft;
+getOwnersForNft();
