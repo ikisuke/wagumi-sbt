@@ -2,6 +2,9 @@ require("dotenv").config();
 
 const fs = require("fs");
 
+// alchemy network
+const { Network } = require("alchemy-sdk");
+
 const { Client } = require("@notionhq/client");
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require("./makeLog");
