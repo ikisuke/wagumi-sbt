@@ -9,7 +9,7 @@ const { env } = require("./dotenv");
 const wagumiSBTOwners = async (
   tokenId,
   contractAddress = "0xef756b67b90026F91D047D1b991F87D657309A42",
-  network = Network.Mainnet
+  network = Network.MATIC_MAINNET
 ) => {
   try {
     const settings = {
@@ -32,7 +32,7 @@ const wagumiCatsOwners = async (contractAddress) => {
   try {
     const settings = {
       apiKey: env.ALCHEMY_API_KEY, // Replace with your Alchemy API Key.
-      network: Network.Mainnet, // Replace with your network.
+      network: Network.ETH_MAINNET, // Replace with your network.
     };
 
     const alchemy = new Alchemy(settings);

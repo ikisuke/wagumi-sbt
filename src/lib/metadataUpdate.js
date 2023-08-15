@@ -616,6 +616,7 @@ const main = async () => {
 
     for (const userId of updateId.forAdd) {
       let address = await wagumiSBTOwners(userId);
+      console.log(address);
       address = await updateCheckSumAddress(address);
       addressesForAdd.push(address);
     }
