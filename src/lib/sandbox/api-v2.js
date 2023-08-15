@@ -3,7 +3,7 @@ let addressData = fs.readFileSync("src/addressHash.json", "utf8");
 addressData = JSON.parse(addressData);
 const { wagumiCatsOwners } = require("../external/alchemy");
 
-const main = async () => {
+const updateScore = async () => {
   //取得したデータを配列に格納
   // 以下のフォーマットのオブジェクトを作成
   // {
@@ -41,5 +41,4 @@ const main = async () => {
   const json = JSON.stringify(scoreObject, null, 2);
   fs.writeFileSync("src/score.json", json);
 };
-
-main();
+exports.updateScore = updateScore;

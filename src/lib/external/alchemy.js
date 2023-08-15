@@ -38,7 +38,6 @@ const wagumiCatsOwners = async (contractAddress) => {
     const alchemy = new Alchemy(settings);
 
     const owners = await alchemy.nft.getOwnersForContract(contractAddress);
-    console.log(owners.owners);
     return owners.owners;
   } catch (error) {
     console.log(error);

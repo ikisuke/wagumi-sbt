@@ -9,7 +9,9 @@ const { Client } = require("@notionhq/client");
 // const { createMetadata } = require('./metadataCreate');
 const { makeExecutionData } = require("./makeLog");
 const { env } = require("./external/dotenv");
-const { getOwnersForNft } = require("./external/alchemy");
+const { wagumiSBTOwners } = require("./external/alchemy");
+const { updateCheckSumAddress } = require("./utils/checksum");
+const { updateScore } = require("./sandbox/api-v2");
 
 //本番環境
 const client = new Client({ auth: env.WAGUMI_SAMURAI_API_TOKEN });
@@ -593,6 +595,10 @@ const pageIdUrlMaker = (pageId) => {
 const main = async () => {
   try {
     const updateId = await updateContributionPage();
+    if (updateId === undefined) {
+      console.log("更新作業を終了します。");
+      return;
+    }
     // userIdから、walletAddressを取得する。
     // addressに書き込むid
 
@@ -604,19 +610,22 @@ const main = async () => {
       ===========================================
                   `);
 
+    // ここから、addressHash.jsonの更新処理
     const addressesForAdd = [];
     const addressesForDelete = [];
 
     for (const userId of updateId.forAdd) {
-      const address = await getOwnersForNft(userId);
+      let address = await wagumiSBTOwners(userId);
+      address = await updateCheckSumAddress(address);
       addressesForAdd.push(address);
     }
     for (const userId of updateId.forDelete) {
-      const address = await getOwnersForNft(userId);
+      let address = await wagumiSBTOwners(userId);
+      address = await updateCheckSumAddress(address);
       addressesForDelete.push(address);
     }
 
-    const addresses = fs.readFileSync("src/address.json");
+    const addresses = fs.readFileSync("src/addressHash.json");
     const addressJson = JSON.parse(addresses);
 
     for (const address of addressesForAdd) {
@@ -626,13 +635,46 @@ const main = async () => {
       addressJson.push(address);
     }
 
+    // 追加するアドレスを緑色でconsole.logする
+    console.log(`\x1b[32m
+      ============== Update ======================
+
+      追加するアドレスを確認してください。
+      ${JSON.stringify(addressesForAdd, null, 2)}
+
+      ===========================================
+                  `);
+
     for (const address of addressesForDelete) {
       const index = addressJson.indexOf(address);
       addressJson.splice(index, 1);
     }
 
+    // 削除するアドレスを赤色でconsole.logする
+    // 赤色にするためのは、console.logの前に記述する必要がある。
+    console.log(`\x1b[31m
+      ============== Update ======================
+  
+      削除するアドレスを確認してください。
+      ${JSON.stringify(addressesForDelete, null, 2)}
+
+      ===========================================
+                  `);
+
     const json = JSON.stringify(addressJson, null, 2);
-    fs.writeFileSync("src/address.json", json + "\n");
+    fs.writeFileSync("src/addressHash.json", json + "\n");
+
+    // ここまで　addressHash.jsonの更新処理
+
+    // ここからscore.jsonの更新処理
+    console.log(`
+    　============== Update ======================
+        
+    Score 情報を更新しています。
+        
+    　===========================================
+                `);
+    await updateScore();
   } catch (error) {
     console.error(error);
   }
