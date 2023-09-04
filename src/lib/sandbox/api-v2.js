@@ -1,6 +1,5 @@
 const fs = require("fs");
-let addressData = fs.readFileSync("src/addressHash.json", "utf8");
-addressData = JSON.parse(addressData);
+
 const { wagumiCatsOwners } = require("../external/alchemy");
 
 const updateScore = async () => {
@@ -14,6 +13,9 @@ const updateScore = async () => {
   //     },
   //    ]
   //  }
+
+  let addressData = fs.readFileSync("src/addressHash.json", "utf8");
+  addressData = JSON.parse(addressData);
 
   const score = [];
   const scoreObject = {
