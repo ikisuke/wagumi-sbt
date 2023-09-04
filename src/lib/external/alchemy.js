@@ -23,7 +23,8 @@ const wagumiSBTOwners = async (
     console.log(owners);
     return owners.owners[0];
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    await wagumiSBTOwners(tokenId, contractAddress, network);
   }
 };
 exports.wagumiSBTOwners = wagumiSBTOwners;
@@ -40,7 +41,7 @@ const wagumiCatsOwners = async (contractAddress) => {
     const owners = await alchemy.nft.getOwnersForContract(contractAddress);
     return owners.owners;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 exports.wagumiCatsOwners = wagumiCatsOwners;

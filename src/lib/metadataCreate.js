@@ -1,11 +1,8 @@
-require('dotenv').config();
-
-const fs = require('fs');
-
-const { makeExecutionData } = require('./makeLog');
-
-const { Client } = require('@notionhq/client');
-
+require("dotenv").config();
+const fs = require("fs");
+const { makeExecutionData } = require("./makeLog");
+const { Client } = require("@notionhq/client");
+const { initAddressHash } = require("./metadataUpdate");
 
 // alchemy sdkをimport
 // const { Network, Alchemy } = require('alchemy-sdk');
@@ -16,10 +13,7 @@ const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 //test環境用
 // const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN });
 
-
-
 const contributions = [];
-
 
 // let nftsForOwner;
 // const chains = [
@@ -61,18 +55,16 @@ const failedIdList = [];
 //引数にTokens
 const getUserData = async (userId) => {
   const metadataStruct = {
-    name: '',
-    description: 'He/She is one of wagumi members.',
-    image: '',
-    external_url: '',
+    name: "",
+    description: "He/She is one of wagumi members.",
+    image: "",
+    external_url: "",
     properties: {
       toknes: [],
       sns: {},
-      contributions: []
+      contributions: [],
     },
-    attributes: [
-      { trait_type: "weighting", value: 0 },
-    ]
+    attributes: [{ trait_type: "weighting", value: 0 }],
   };
 
   const request = {
@@ -81,13 +73,13 @@ const getUserData = async (userId) => {
     //test環境用
     // database_id: process.env.WAGUMI_TEST_USER_ID,
     filter: {
-      property: 'id',
+      property: "id",
       rich_text: {
         equals: userId,
       },
     },
   };
-  console.log('Making ', userId)
+  console.log("Making ", userId);
 
   try {
     const response = await client.databases.query(request);
@@ -105,15 +97,18 @@ const getUserData = async (userId) => {
     tmp = await client.pages.retrieve({ page_id: page.id });
     metadataStruct.image = tmp.icon.external.url;
 
-    let external_url_id = page.id
+    let external_url_id = page.id;
 
     const replacedStr = external_url_id.replace(/-/g, "");
 
     metadataStruct.image = process.env.SBT_IMAGE_URL + userId;
 
-    metadataStruct.external_url = process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
+    metadataStruct.external_url =
+      process.env.WAGUMI_EXTERNAL_URL + `${replacedStr}`;
 
-    const metadataJson = JSON.parse(fs.readFileSync('src/metadata.json', 'utf-8'));
+    const metadataJson = JSON.parse(
+      fs.readFileSync("src/metadata.json", "utf-8")
+    );
 
     for (const contribution of metadataJson) {
       if (contribution.users.includes(userId)) {
@@ -125,14 +120,12 @@ const getUserData = async (userId) => {
       }
     }
 
-
     const json = JSON.stringify(metadataStruct, null, 2);
 
-
-    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + '\n');
+    fs.writeFileSync(metadataDirectoryPath + `${userId}.json`, json + "\n");
   } catch (error) {
     failedIdList.push(userId);
-    console.error('create user data failed', error);
+    console.error("create user data failed", error);
   }
 };
 
@@ -162,7 +155,6 @@ const userSearch = async () => {
 // 	    console.log('ウォレットアドレスが共有されていません。');
 // 	}
 // };
-
 
 // const getNFTs = async (chain, pageKey, tokens) => {
 //   //Tokenの情報を取ってくる
@@ -209,7 +201,7 @@ const userSearch = async () => {
 // })();
 
 const createMetadata = async () => {
-  const executionMessage = 'create metadata';
+  const executionMessage = "create metadata";
   let executionData;
 
   try {
@@ -221,21 +213,21 @@ const createMetadata = async () => {
       //test環境
       // database_id: process.env.WAGUMI_TEST_DB_ID,
       filter: {
-        property: 'published',
+        property: "published",
         checkbox: {
           equals: true,
-        }
+        },
       },
       sorts: [
         {
-          property: 'date',
-          direction: 'descending',
+          property: "date",
+          direction: "descending",
         },
       ],
     };
 
     let pages = await client.databases.query(request);
-    console.log(pages.results)
+    console.log(pages.results);
 
     await pushContributionPage(pages);
 
@@ -262,14 +254,23 @@ const createMetadata = async () => {
     // 取得失敗に対して再取得を行う関数
     while (failedIdList.length > 0) {
       const failedId = failedIdList.shift();
-      console.log('making again', failedId)
+      console.log("making again", failedId);
       await getUserData(failedId);
     }
 
-    fs.writeFileSync('src/executionData.json', executionData + '\n');
-    console.log('success!')
+    fs.writeFileSync("src/executionData.json", executionData + "\n");
+    // score.jsonの作成
+    console.log(`
+    　============== Update ======================
+        
+    Score 情報を更新しています。
+        
+    　=========================================== 
+    `);
+    await initAddressHash();
+    console.log("success!");
   } catch (error) {
-    console.error('create metadata failed', error);
+    console.error("create metadata failed", error);
   }
 };
 
@@ -278,18 +279,18 @@ const pushContributionPage = async (pages) => {
     let tmp;
 
     let contribution = {
-      last_edited_time: '',
-      name: '',
-      image: '',
-      description: '',
+      last_edited_time: "",
+      name: "",
+      image: "",
+      description: "",
       properties: {
-        page_id: '',
-        reference: []
+        page_id: "",
+        reference: [],
       },
       weighting: 0,
       date: {
         start: "",
-        end: ""
+        end: "",
       },
       users: [],
     };
@@ -298,15 +299,20 @@ const pushContributionPage = async (pages) => {
     console.log(retrivedPage.archived);
     //contributeにデータを追加するためのトリガー。falseの場合データ追加をしない。(計算数を減らす目的)
 
-
     contribution.properties.page_id = page.id;
     contribution.last_edited_time = page.last_edited_time;
 
-    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.name.id });
+    tmp = await client.pages.properties.retrieve({
+      page_id: page.id,
+      property_id: page.properties.name.id,
+    });
     contribution.name = tmp.results[0].title.plain_text;
 
     //imageが設定されていない場合
-    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.image.id });
+    tmp = await client.pages.properties.retrieve({
+      page_id: page.id,
+      property_id: page.properties.image.id,
+    });
     console.log(tmp);
     if (tmp.files.length == 0) {
       contribution.image = "No Image";
@@ -316,30 +322,42 @@ const pushContributionPage = async (pages) => {
       contribution.image = tmp.files[0].external.url;
     }
 
-    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.description.id });
+    tmp = await client.pages.properties.retrieve({
+      page_id: page.id,
+      property_id: page.properties.description.id,
+    });
     contribution.description = tmp.results[0].rich_text.plain_text;
 
-    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.date.id });
+    tmp = await client.pages.properties.retrieve({
+      page_id: page.id,
+      property_id: page.properties.date.id,
+    });
     contribution.date.start = tmp.date.start;
     contribution.date.end = tmp.date.end;
     if (!contribution.date.end) {
       contribution.date.end = "";
     }
 
-    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.userId.id });
+    tmp = await client.pages.properties.retrieve({
+      page_id: page.id,
+      property_id: page.properties.userId.id,
+    });
     contribution.users = tmp.results.map((user) => {
       let userId = user.rich_text.plain_text;
       return userId;
     });
 
-    tmp = await client.pages.properties.retrieve({ page_id: page.id, property_id: page.properties.weighting.id })
+    tmp = await client.pages.properties.retrieve({
+      page_id: page.id,
+      property_id: page.properties.weighting.id,
+    });
     contribution.weighting = tmp.select.name.length;
 
     contributions.push(contribution);
-    console.log(contribution)
+    console.log(contribution);
   }
   const jsonData = JSON.stringify(contributions, null, 2);
-  fs.writeFileSync('src/metadata.json', jsonData + '\n');
+  fs.writeFileSync("src/metadata.json", jsonData + "\n");
   // json形式に変換して、ファイル作成
   // コマンドラインの第一引数(discordのユーザーID)をファイル名にする
 };

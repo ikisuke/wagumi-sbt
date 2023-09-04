@@ -12,6 +12,7 @@ const { env } = require("./external/dotenv");
 const { wagumiSBTOwners } = require("./external/alchemy");
 const { updateCheckSumAddress } = require("./utils/checksum");
 const { updateScore } = require("./sandbox/api-v2");
+const { init } = require("express/lib/application");
 
 //本番環境
 const client = new Client({ auth: env.WAGUMI_SAMURAI_API_TOKEN });
@@ -609,6 +610,9 @@ const main = async () => {
           
       ===========================================
                   `);
+    if (!fs.existsSync("src/addressHash.json")) {
+      await initAddressHash();
+    }
 
     // ここから、addressHash.jsonの更新処理
     const addressesForAdd = [];
@@ -680,5 +684,26 @@ const main = async () => {
     console.error(error);
   }
 };
-
 exports.update = main;
+
+const initAddressHash = async () => {
+  const ids = [];
+  // metadataディレクトリのファイル名を取得する。
+  const files = fs.readdirSync(metadataDirectoryPath);
+  for (const file of files) {
+    ids.push(file.replace(/.json/g, ""));
+  }
+  const addresses = [];
+  for (const id of ids) {
+    let address = await wagumiSBTOwners(id);
+    address = await updateCheckSumAddress(address);
+    addresses.push(address);
+  }
+  // addressHash.jsonに書き込む
+  const json = JSON.stringify(addresses, null, 2);
+  fs.writeFileSync("src/addressHash.json", json + "\n");
+
+  // score.jsonに書き込む
+  await updateScore();
+};
+exports.initAddressHash = initAddressHash;
