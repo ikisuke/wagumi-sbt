@@ -597,7 +597,6 @@ const main = async () => {
     const updateId = await updateContributionPage();
     if (updateId === undefined) {
       console.log("更新作業を終了します。");
-      return;
     }
     // userIdから、walletAddressを取得する。
     // addressに書き込むid
