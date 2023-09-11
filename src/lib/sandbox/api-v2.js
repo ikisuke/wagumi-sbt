@@ -1,21 +1,12 @@
 const fs = require("fs");
 
-const { wagumiCatsOwners } = require("../external/alchemy");
+const { wagumiCatsOwners, wagumiSBTOwners } = require("../external/alchemy");
 
 const updateScore = async () => {
-  //取得したデータを配列に格納
-  // 以下のフォーマットのオブジェクトを作成
-  // {
-  //   score:[
-  //     {
-  //       address: "0x00
-  //       score: 0
-  //     },
-  //    ]
-  //  }
+  const addresses = [];
+  const sbtsAddress = await wagumiSBTOwners();
 
-  let addressData = fs.readFileSync("src/addressHash.json", "utf8");
-  addressData = JSON.parse(addressData);
+  addresses.push(...sbtsAddress);
 
   const score = [];
   const scoreObject = {
@@ -26,7 +17,7 @@ const updateScore = async () => {
     "0x6144D927EE371de7e7f8221b596F3432E7A8e6D9"
   );
 
-  addressData.push(...catsAddress);
+  addresses.push(...catsAddress);
 
   for (let i = 0; i < addressData.length; i++) {
     if (addressData[i] === "0x0000000000000000000000000000000000000000") {
@@ -41,6 +32,9 @@ const updateScore = async () => {
 
   // jsonファイルに書き込み
   const json = JSON.stringify(scoreObject, null, 2);
+
+  // /metadata/scores/[timestamp].json
+  
   fs.writeFileSync("src/score.json", json);
 };
 exports.updateScore = updateScore;

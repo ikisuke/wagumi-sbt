@@ -12,7 +12,6 @@ const { env } = require("./external/dotenv");
 const { wagumiSBTOwners } = require("./external/alchemy");
 const { updateCheckSumAddress } = require("./utils/checksum");
 const { updateScore } = require("./sandbox/api-v2");
-const { init } = require("express/lib/application");
 
 //本番環境
 const client = new Client({ auth: env.WAGUMI_SAMURAI_API_TOKEN });
@@ -602,82 +601,12 @@ const main = async () => {
     }
     // userIdから、walletAddressを取得する。
     // addressに書き込むid
-
     console.log(`
       ============== Update ======================
-          
-      Address情報を更新しています。
-          
-      ===========================================
-                  `);
-    if (!fs.existsSync("src/addressHash.json")) {
-      await initAddressHash();
-    }
-
-    // ここから、addressHash.jsonの更新処理
-    const addressesForAdd = [];
-    const addressesForDelete = [];
-
-    for (const userId of updateId.forAdd) {
-      let address = await wagumiSBTOwners(userId);
-      console.log(address);
-      address = await updateCheckSumAddress(address);
-      addressesForAdd.push(address);
-    }
-    for (const userId of updateId.forDelete) {
-      let address = await wagumiSBTOwners(userId);
-      address = await updateCheckSumAddress(address);
-      addressesForDelete.push(address);
-    }
-
-    const addresses = fs.readFileSync("src/addressHash.json");
-    const addressJson = JSON.parse(addresses);
-
-    for (const address of addressesForAdd) {
-      if (addressJson.includes(address)) {
-        continue;
-      }
-      addressJson.push(address);
-    }
-
-    // 追加するアドレスを緑色でconsole.logする
-    console.log(`\x1b[32m
-      ============== Update ======================
-
-      追加するアドレスを確認してください。
-      ${JSON.stringify(addressesForAdd, null, 2)}
-
-      ===========================================
-                  `);
-
-    for (const address of addressesForDelete) {
-      const index = addressJson.indexOf(address);
-      addressJson.splice(index, 1);
-    }
-
-    // 削除するアドレスを赤色でconsole.logする
-    // 赤色にするためのは、console.logの前に記述する必要がある。
-    console.log(`\x1b[31m
-      ============== Update ======================
-  
-      削除するアドレスを確認してください。
-      ${JSON.stringify(addressesForDelete, null, 2)}
-
-      ===========================================
-                  `);
-
-    const json = JSON.stringify(addressJson, null, 2);
-    fs.writeFileSync("src/addressHash.json", json + "\n");
-
-    // ここまで　addressHash.jsonの更新処理
-
-    // ここからscore.jsonの更新処理
-    console.log(`
-    　============== Update ======================
         
-    Score 情報を更新しています。
+      Score 情報を更新しています。
         
-    　===========================================
+      ===========================================
                 `);
     await updateScore();
   } catch (error) {
