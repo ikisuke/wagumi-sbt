@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const { wagumiCatsOwners, wagumiSBTOwners } = require("../external/alchemy");
+const { updateCheckSumAddress } = require("../utils/checksum");
 
 const updateScore = async () => {
   const addresses = [];
@@ -19,12 +20,14 @@ const updateScore = async () => {
 
   addresses.push(...catsAddress);
 
-  for (let i = 0; i < addressData.length; i++) {
-    if (addressData[i] === "0x0000000000000000000000000000000000000000") {
+  addresses = addresses.map((address) => updateCheckSumAddress(address));
+
+  for (let i = 0; i < addresses.length; i++) {
+    if (addresses[i] === "0x0000000000000000000000000000000000000000") {
       continue;
     }
     const obj = {
-      address: addressData[i],
+      address: addresses[i],
       score: 1,
     };
     score.push(obj);
@@ -34,7 +37,7 @@ const updateScore = async () => {
   const json = JSON.stringify(scoreObject, null, 2);
 
   // /metadata/scores/[timestamp].json
-  
+
   fs.writeFileSync("src/score.json", json);
 };
 exports.updateScore = updateScore;
