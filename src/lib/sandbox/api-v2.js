@@ -4,7 +4,7 @@ const { wagumiCatsOwners, wagumiSBTOwners } = require("../external/alchemy");
 const { updateCheckSumAddress } = require("../utils/checksum");
 
 const updateScore = async () => {
-  const addresses = [];
+  let addresses = [];
   const sbtsAddress = await wagumiSBTOwners();
 
   addresses.push(...sbtsAddress);
