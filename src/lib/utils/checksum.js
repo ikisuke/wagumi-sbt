@@ -3,7 +3,7 @@ const keccak256 = require("js-sha3").keccak256;
 
 // ハッシュ値の計算
 // address.jsonの中身を読み込む
-const updateCheckSumAddress = async (address) => {
+const updateCheckSumAddress = (address) => {
   // 0xを削除
   const addressWithout0x = address.replace(/0x/g, "");
   // ハッシュ値の計算

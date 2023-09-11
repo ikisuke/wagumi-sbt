@@ -7,7 +7,6 @@ const { env } = require("./dotenv");
 
 // Print total NFT count returned in the response:
 const wagumiSBTOwners = async (
-  tokenId,
   contractAddress = "0xef756b67b90026F91D047D1b991F87D657309A42",
   network = Network.MATIC_MAINNET
 ) => {
@@ -19,12 +18,11 @@ const wagumiSBTOwners = async (
 
     const alchemy = new Alchemy(settings);
 
-    const owners = await alchemy.nft.getOwnersForNft(contractAddress, tokenId);
+    const owners = await alchemy.nft.getOwnersForContract(contractAddress);
     console.log(owners);
-    return owners.owners[0];
+    return owners.owners;
   } catch (error) {
     console.error(error);
-    await wagumiSBTOwners(tokenId, contractAddress, network);
   }
 };
 exports.wagumiSBTOwners = wagumiSBTOwners;
