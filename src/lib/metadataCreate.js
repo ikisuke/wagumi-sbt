@@ -2,7 +2,7 @@ require("dotenv").config();
 const fs = require("fs");
 const { makeExecutionData } = require("./makeLog");
 const { Client } = require("@notionhq/client");
-const { initAddressHash } = require("./metadataUpdate");
+const { updateScore } = require("./sandbox/api-v2");
 
 // alchemy sdkをimport
 // const { Network, Alchemy } = require('alchemy-sdk');
@@ -14,6 +14,8 @@ const client = new Client({ auth: process.env.WAGUMI_SAMURAI_API_TOKEN });
 // const client = new Client({ auth: process.env.WAGUMI_TEST_API_TOKEN });
 
 const contributions = [];
+
+const failedContribution = [];
 
 // let nftsForOwner;
 // const chains = [
@@ -204,6 +206,8 @@ const createMetadata = async () => {
   const executionMessage = "create metadata";
   let executionData;
 
+  const requestPages = [];
+
   try {
     executionData = makeExecutionData(executionMessage);
 
@@ -227,14 +231,25 @@ const createMetadata = async () => {
     };
 
     let pages = await client.databases.query(request);
-    console.log(pages.results);
-
-    await pushContributionPage(pages);
+    requestPages.push(...pages.results);
 
     while (pages.has_more) {
       request.start_cursor = pages.next_cursor;
       pages = await client.databases.query(request);
-      await pushContributionPage(pages);
+      requestPages.push(...pages.results);
+    }
+    console.log(
+      "🚀 ~ file: metadataCreate.js:240 ~ createMetadata ~ requestPages:",
+      requestPages
+    );
+    for (let page of requestPages) {
+      await pushContributionPage(page);
+    }
+
+    while (failedContribution.length > 0) {
+      const failedPage = failedContribution.shift();
+      console.log("making again", failedPage);
+      await pushContributionPage(failedPage);
     }
     const userIds = await userSearch();
 
@@ -267,34 +282,34 @@ const createMetadata = async () => {
         
     　=========================================== 
     `);
-    await initAddressHash();
+    await updateScore();
     console.log("success!");
   } catch (error) {
     console.error("create metadata failed", error);
   }
 };
 
-const pushContributionPage = async (pages) => {
-  for (const page of pages.results) {
-    let tmp;
+const pushContributionPage = async (page) => {
+  let tmp;
 
-    let contribution = {
-      last_edited_time: "",
-      name: "",
-      image: "",
-      description: "",
-      properties: {
-        page_id: "",
-        reference: [],
-      },
-      weighting: 0,
-      date: {
-        start: "",
-        end: "",
-      },
-      users: [],
-    };
+  let contribution = {
+    last_edited_time: "",
+    name: "",
+    image: "",
+    description: "",
+    properties: {
+      page_id: "",
+      reference: [],
+    },
+    weighting: 0,
+    date: {
+      start: "",
+      end: "",
+    },
+    users: [],
+  };
 
+  try {
     const retrivedPage = await client.pages.retrieve({ page_id: page.id });
     console.log(retrivedPage.archived);
     //contributeにデータを追加するためのトリガー。falseの場合データ追加をしない。(計算数を減らす目的)
@@ -355,9 +370,12 @@ const pushContributionPage = async (pages) => {
 
     contributions.push(contribution);
     console.log(contribution);
+    const jsonData = JSON.stringify(contributions, null, 2);
+    fs.writeFileSync("src/metadata.json", jsonData + "\n");
+  } catch (error) {
+    console.error("push contribution page failed", error);
+    failedContribution.push(page);
   }
-  const jsonData = JSON.stringify(contributions, null, 2);
-  fs.writeFileSync("src/metadata.json", jsonData + "\n");
   // json形式に変換して、ファイル作成
   // コマンドラインの第一引数(discordのユーザーID)をファイル名にする
 };
